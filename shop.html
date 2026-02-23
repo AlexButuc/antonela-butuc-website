@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Antonela Butuc - Wellness Journals, Planners & Guides</title>
+    <meta name="description" content="Digital wellness products including journals, planners, guides, and coloring books to support your health journey.">
+    <link rel="canonical" href="https://antonelabutuc.com/shop/">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://antonelabutuc.com/shop/">
+    <meta property="og:title" content="Shop | Antonela Butuc">
+    <meta property="og:description" content="Digital wellness products to support your health journey.">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A'/%3E%3Ctext x='50' y='65' font-family='Georgia,serif' font-size='50' fill='%23C9A962' text-anchor='middle'%3EAB%3C/text%3E%3C/svg%3E">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --obsidian: #0A0A0A;
+            --gold: #C9A962;
+            --champagne: #F5EFE7;
+            --silver: #A8A8A8;
+            --cream: #FFFEF9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--obsidian);
+            color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.04;
+            z-index: 1000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+        }
+        
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 1rem 5rem;
+        }
+        
+        .logo {
+            font-family: 'Cormorant', serif;
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            opacity: 0.6;
+        }
+        
+        .logo-subtitle {
+            display: block;
+            font-size: 0.55rem;
+            letter-spacing: 0.3em;
+            color: var(--silver);
+            margin-top: 0.3rem;
+        }
+        
+        nav {
+            display: flex;
+            gap: 4rem;
+        }
+        
+        nav a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 200;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 1px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 150;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-nav.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .mobile-nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            letter-spacing: 0.2em;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--gold);
+        }
+        
+        .hero {
+            padding: 12rem 5rem 6rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title {
+            font-family: 'Cormorant', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 200;
+            color: var(--silver);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 2rem 5rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+        }
+        
+        .category-tab {
+            background: transparent;
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            color: var(--silver);
+            padding: 0.8rem 1.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .category-tab:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        
+        .category-tab.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--obsidian);
+        }
+        
+        .products-section {
+            padding: 4rem 5rem 8rem;
+            position: relative;
+        }
+        
+        .products-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(201, 169, 98, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+        
+        .products-section::after {
+            content: 'SHOP';
+            position: absolute;
+            top: 3rem;
+            right: 3rem;
+            font-size: 12rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: rgba(201, 169, 98, 0.02);
+            pointer-events: none;
+        }
+        
+        .section-divider {
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 2rem;
+        }
+        
+        .products-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .products-count {
+            font-size: 0.75rem;
+            color: var(--silver);
+            letter-spacing: 0.1em;
+        }
+        
+        .products-count span {
+            color: var(--gold);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-card {
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            transition: all 0.5s ease;
+            background: rgba(10, 10, 10, 0.5);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-card:hover {
+            border-color: rgba(201, 169, 98, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(201, 169, 98, 0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: rgba(201, 169, 98, 0.05);
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
+        }
+        
+        .product-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 10, 0);
+            transition: background 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        
+        .product-card:hover .product-image-overlay {
+            background: rgba(10, 10, 10, 0.4);
+        }
+        
+        .quick-view {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            background: var(--gold);
+            color: var(--obsidian);
+            padding: 0.7rem 1.5rem;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        
+        .product-card:hover .quick-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(10, 10, 10, 0.9);
+            color: var(--gold);
+            padding: 0.35rem 0.9rem;
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(201, 169, 98, 0.4);
+            z-index: 3;
+        }
+        
+        .digital-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            color: var(--obsidian);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            z-index: 3;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover .digital-badge {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .product-title {
+            font-family: 'Cormorant', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            min-height: 3rem;
+        }
+        
+        .product-price {
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+        
+        .product-price::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 0.5rem auto 0;
+        }
+        
+        .product-button {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+        
+        .product-button:hover {
+            background: var(--gold);
+            color: var(--obsidian);
+        }
+        
+        .promo-banner {
+            padding: 4rem 5rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 98, 0.05) 50%, transparent 100%);
+            text-align: center;
+        }
+        
+        .promo-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .promo-title {
+            font-family: 'Cormorant', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .promo-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        
+        .promo-text {
+            font-size: 0.9rem;
+            color: var(--silver);
+            margin-bottom: 2rem;
+        }
+        
+        .promo-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--obsidian);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+        
+        .promo-button:hover {
+            background: var(--champagne);
+        }
+        
+        .disclaimer {
+            padding: 3rem 5rem;
+            border-top: 1px solid rgba(201, 169, 98, 0.1);
+        }
+        
+        .disclaimer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .disclaimer-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .disclaimer-text {
+            font-size: 0.85rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+        }
+        
+        .disclaimer-text a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .disclaimer-text a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            padding: 3rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(201, 169, 98, 0.1);
+        }
+        
+        .footer-logo {
+            font-family: 'Cormorant', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 0.3em;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-social a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-copyright {
+            font-size: 0.65rem;
+            color: var(--silver);
+            letter-spacing: 0.1em;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--gold);
+            background: rgba(10, 10, 10, 0.9);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 90;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .back-to-top:hover {
+            background: var(--gold);
+            color: var(--obsidian);
+        }
+        
+        .no-products {
+            text-align: center;
+            padding: 4rem;
+            color: var(--silver);
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 1024px) {
+            header {
+                padding: 1.5rem 3rem;
+            }
+            
+            .hero {
+                padding: 10rem 3rem 4rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .category-tabs {
+                padding: 1.5rem 3rem;
+            }
+            
+            .products-section {
+                padding: 3rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .promo-banner {
+                padding: 3rem;
+            }
+            
+            .promo-title {
+                font-size: 2rem;
+            }
+            
+            .disclaimer {
+                padding: 2rem 3rem;
+            }
+            
+            footer {
+                padding: 2rem 3rem;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            nav {
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-nav {
+                display: flex;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .hero {
+                padding: 8rem 1.5rem 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .category-tabs {
+                padding: 1rem 1.5rem;
+                gap: 0.5rem;
+            }
+            
+            .category-tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.6rem;
+            }
+            
+            .products-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .product-info {
+                padding: 1.2rem;
+            }
+            
+            .product-title {
+                font-size: 1rem;
+            }
+            
+            .promo-banner {
+                padding: 2rem 1.5rem;
+            }
+            
+            .promo-title {
+                font-size: 1.5rem;
+            }
+            
+            .disclaimer {
+                padding: 2rem 1.5rem;
+            }
+            
+            .disclaimer-text {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    
+    <header id="header">
+        <a href="index.html" class="logo">
+            ANTONELA <span>BUTUC</span>
+            <span class="logo-subtitle">MSc Nutritionist & Brain Health Coach</span>
+        </a>
+        <nav>
+            <a href="index.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="index.html#testimonials">Stories</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="shop.html">Shop</a>
+        <a href="index.html#testimonials">Stories</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    
+    <section class="hero">
+        <p class="hero-label">Wellness Journey</p>
+        <h1 class="hero-title">Shop</h1>
+        <p class="hero-subtitle">Digital products to support your wellness journey. Journals, planners, guides, and more.</p>
+    </section>
+    
+    <div class="category-tabs">
+        <button class="category-tab active" data-category="all">All Products</button>
+        <button class="category-tab" data-category="journals">Journals</button>
+        <button class="category-tab" data-category="planners">Planners</button>
+        <button class="category-tab" data-category="guides">Guides</button>
+        <button class="category-tab" data-category="coloring">Coloring</button>
+        <button class="category-tab" data-category="christmas">Christmas</button>
+    </div>
+    
+    <section class="products-section">
+        <div class="section-divider"></div>
+        <div class="products-header">
+            <p class="products-count">Showing <span id="visibleCount">33</span> products</p>
+        </div>
+        <div class="products-grid" id="productsGrid">
+            <div class="product-card" data-categories="journals,planners" data-badge="Journal">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/mind-over-business.png" alt="Mind Over Business Journal" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/mind-over-business-journal/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Mind Over Business Journal</h3>
+                    <p class="product-price">€41.00</p>
+                    <a href="https://antonelabutuc.com/product/mind-over-business-journal/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals" data-badge="Journal">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/07/1-2-300x300.png" alt="The Gratitude Growth Journal - Green" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/the-gratitude-growth-journal-green/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">The Gratitude Growth Journal - Green</h3>
+                    <p class="product-price">€27.00</p>
+                    <a href="https://antonelabutuc.com/product/the-gratitude-growth-journal-green/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/07/1-3-300x300.png" alt="The Gratitude Growth Journal - Blue" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/the-gratitude-growth-journal-blue/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">The Gratitude Growth Journal - Blue</h3>
+                    <p class="product-price">€27.00</p>
+                    <a href="https://antonelabutuc.com/product/the-gratitude-growth-journal-blue/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/07/1-1-300x300.png" alt="The Gratitude Growth Journal - Pink" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/the-gratitude-growth-journal-pink/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">The Gratitude Growth Journal - Pink</h3>
+                    <p class="product-price">€27.00</p>
+                    <a href="https://antonelabutuc.com/product/the-gratitude-growth-journal-pink/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/05/1-2-300x300.png" alt="The Gratitude Growth Journal" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/album/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">The Gratitude Growth Journal</h3>
+                    <p class="product-price">€27.00</p>
+                    <a href="https://antonelabutuc.com/product/album/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals,guides">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/Cycle-Syncing-Nutrition-Guide2-1.png" alt="Unshakeable Teen Workbook" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/unshakeable-teen-the-ultimate-self-discovery-confidence-workbook/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Unshakeable Teen: The Ultimate Self-Discovery & Confidence Workbook</h3>
+                    <p class="product-price">€21.00</p>
+                    <a href="https://antonelabutuc.com/product/unshakeable-teen-the-ultimate-self-discovery-confidence-workbook/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/Copy-of-6x9-KDP-BOOK-MOCKUP-1-300x300.png" alt="Fear Conquering Journal" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/fear-conquering-journal/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Fear Conquering Journal</h3>
+                    <p class="product-price">€21.00</p>
+                    <a href="https://antonelabutuc.com/product/fear-conquering-journal/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/Copy-of-6x9-KDP-BOOK-MOCKUP-300x300.png" alt="Home-Based Fitness Journal" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/home-based-fitness-journal/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Home-Based Fitness Journal</h3>
+                    <p class="product-price">€19.00</p>
+                    <a href="https://antonelabutuc.com/product/home-based-fitness-journal/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/self-reflection-1-scaled-300x300.png" alt="Self-Reflection Journal" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/self-reflection-journal/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Self-Reflection Journal</h3>
+                    <p class="product-price">€19.00</p>
+                    <a href="https://antonelabutuc.com/product/self-reflection-journal/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals,planners">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/09/1-2-300x300.png" alt="Fitness Journey Companion" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/fitness-journey-companion-all-in-one-planner/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Fitness Journey Companion: All-in-One Planner</h3>
+                    <p class="product-price">€19.00</p>
+                    <a href="https://antonelabutuc.com/product/fitness-journey-companion-all-in-one-planner/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/09/1-1-300x300.png" alt="Your Roadmap to Success - Lotus" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/your-roadmap-to-success-the-5-minute-goal-journal-lotus/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Your Roadmap to Success: The 5-Minute Goal Journal – Lotus</h3>
+                    <p class="product-price">€19.00</p>
+                    <a href="https://antonelabutuc.com/product/your-roadmap-to-success-the-5-minute-goal-journal-lotus/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="journals">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/09/1-300x300.png" alt="Your Roadmap to Success" loading="lazy">
+                    <span class="product-badge">Journal</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/your-roadmap-to-success-the-5-minute-goal-journal/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Your Roadmap to Success: The 5-Minute Goal Journal</h3>
+                    <p class="product-price">€19.00</p>
+                    <a href="https://antonelabutuc.com/product/your-roadmap-to-success-the-5-minute-goal-journal/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="planners,guides">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/07/1-300x300.png" alt="Embrace Your Brilliance - Nude" loading="lazy">
+                    <span class="product-badge">Planner</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/embrace-your-brilliance-a-journal-to-fall-in-love-with-yourself-again-nude/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Embrace Your Brilliance: A Journal To Fall In Love With Yourself – Nude</h3>
+                    <p class="product-price">€14.00</p>
+                    <a href="https://antonelabutuc.com/product/embrace-your-brilliance-a-journal-to-fall-in-love-with-yourself-again-nude/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="planners">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/digital-food-journal-300x300.png" alt="Digital Food Journal" loading="lazy">
+                    <span class="product-badge">Planner</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/digital-food-journal/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Digital Food Journal</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/digital-food-journal/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="planners,guides">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/Cycle-Syncing-Nutrition-Guide2-300x300.png" alt="Cycle Syncing Nutrition Guide" loading="lazy">
+                    <span class="product-badge">Planner</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/cycle-syncing-nutrition-guide/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Cycle Syncing Nutrition Guide</h3>
+                    <p class="product-price">€11.00</p>
+                    <a href="https://antonelabutuc.com/product/cycle-syncing-nutrition-guide/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="planners,guides">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/07/1-7-300x300.png" alt="Self-Confidence Journal" loading="lazy">
+                    <span class="product-badge">Planner</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/self-confidence-journal/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Self-Confidence Journal</h3>
+                    <p class="product-price">€14.00</p>
+                    <a href="https://antonelabutuc.com/product/self-confidence-journal/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="guides">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/07/1-5-300x300.png" alt="Embrace Your Brilliance - Pinkish" loading="lazy">
+                    <span class="product-badge">Guide</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/embrace-your-brilliance-a-journal-to-fall-in-love-with-yourself-again-pinkish/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Embrace Your Brilliance: A Journal To Fall In Love With Yourself – Pinkish</h3>
+                    <p class="product-price">€14.00</p>
+                    <a href="https://antonelabutuc.com/product/embrace-your-brilliance-a-journal-to-fall-in-love-with-yourself-again-pinkish/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="guides">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/The-Perimenopause-Menopause-Nutrition-Guide-300x300.png" alt="Perimenopause & Menopause Nutrition Guide" loading="lazy">
+                    <span class="product-badge">Guide</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/the-perimenopause-menopause-nutrition-guide/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">The Perimenopause & Menopause Nutrition Guide</h3>
+                    <p class="product-price">€24.00</p>
+                    <a href="https://antonelabutuc.com/product/the-perimenopause-menopause-nutrition-guide/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="guides">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/12-weeks-habit-tracker-guide-300x300.png" alt="12-Week Habit Tracker Guide" loading="lazy">
+                    <span class="product-badge">Guide</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/12-week-habit-tracker-guide/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">12-Week Habit Tracker Guide</h3>
+                    <p class="product-price">€15.00</p>
+                    <a href="https://antonelabutuc.com/product/12-week-habit-tracker-guide/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="guides">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2025/05/saying-no-2.png" alt="The Art of Saying No" loading="lazy">
+                    <span class="product-badge">Guide</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/the-art-of-saying-no-boundaries-without-guilt-apologies-or-burnout-journal/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">The Art of Saying No—Boundaries Without Guilt</h3>
+                    <p class="product-price">€15.00</p>
+                    <a href="https://antonelabutuc.com/product/the-art-of-saying-no-boundaries-without-guilt-apologies-or-burnout-journal/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-8-300x300.png" alt="Superheroes Man Coloring Book" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/superheroes-man-coloring-book/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Superheroes Man Coloring Book</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/superheroes-man-coloring-book/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-9-300x300.png" alt="SuperHero Woman Coloring Book" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/superhero-woman-coloring-book/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">SuperHero Woman Coloring Book</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/superhero-woman-coloring-book/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-6-300x300.png" alt="Wonderful Cottage in the Woods Coloring Book" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/wonderful-cottage-in-the-woods-coloring-book/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Wonderful Cottage in the Woods Coloring Book</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/wonderful-cottage-in-the-woods-coloring-book/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-5-300x300.png" alt="Mandalas Mindfulness Coloring Book" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/mandalas-mindfulness-coloring-book/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Mandalas Mindfulness Coloring Book</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/mandalas-mindfulness-coloring-book/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-4-300x300.png" alt="Large Mandala Coloring Book" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/large-mandala-coloring-book/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Large Mandala Coloring Book</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/large-mandala-coloring-book/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring,christmas">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-3-300x300.png" alt="Merry Candle Coloring Book" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/merry-candle-coloring-book/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Merry Candle Coloring Book</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/merry-candle-coloring-book/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/08/1-300x300.png" alt="Enchanted Realms Coloring Adventure" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/enchanted-realms-a-fairy-tale-coloring-adventure/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Enchanted Realms: A Fairy Tale Coloring Adventure</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/enchanted-realms-a-fairy-tale-coloring-adventure/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/08/Whiskered-Wonders-A-Cat-Lovers-Coloring-Book-etsy-cover-template-300x300.png" alt="Whiskered Wonders Coloring Book" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/whiskered-wonders-a-cat-lovers-coloring-book/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Whiskered Wonders: A Cat Lover's Coloring Book</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/whiskered-wonders-a-cat-lovers-coloring-book/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/07/1-6-300x300.png" alt="Little Beasts Mindfulness Colouring Pages" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/little-beasts-mindfulness-colouring-pages/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Little Beasts Mindfulness Colouring Pages</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/little-beasts-mindfulness-colouring-pages/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="coloring">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/07/1-4-300x300.png" alt="Garden Mindfulness Coloring Pages" loading="lazy">
+                    <span class="product-badge">Coloring</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/garden-mindfulness-coloring-pages/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Garden Mindfulness Coloring Pages</h3>
+                    <p class="product-price">€9.00</p>
+                    <a href="https://antonelabutuc.com/product/garden-mindfulness-coloring-pages/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="christmas">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-2-300x300.png" alt="Complete Christmas Decoration Checklist" loading="lazy">
+                    <span class="product-badge">Christmas</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/the-complete-christmas-decoration-checklist/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">The Complete Christmas Decoration Checklist</h3>
+                    <p class="product-price">€5.00</p>
+                    <a href="https://antonelabutuc.com/product/the-complete-christmas-decoration-checklist/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="christmas">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-1-300x300.png" alt="Holiday Simmering Potpourri Recipes & Tags" loading="lazy">
+                    <span class="product-badge">Christmas</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/holiday-simmering-potpourri-recipes-tags/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Holiday Simmering Potpourri Recipes & Tags</h3>
+                    <p class="product-price">€5.00</p>
+                    <a href="https://antonelabutuc.com/product/holiday-simmering-potpourri-recipes-tags/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+            
+            <div class="product-card" data-categories="christmas">
+                <div class="product-image">
+                    <img src="https://antonelabutuc.com/wp-content/uploads/2023/12/1-300x300.png" alt="Secret Santa Quiz" loading="lazy">
+                    <span class="product-badge">Christmas</span>
+                    <span class="digital-badge" title="Digital Download">↓</span>
+                    <div class="product-image-overlay">
+                        <a href="https://antonelabutuc.com/product/secret-santa-quiz/" target="_blank" rel="noopener" class="quick-view">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Secret Santa Quiz</h3>
+                    <p class="product-price">€3.00</p>
+                    <a href="https://antonelabutuc.com/product/secret-santa-quiz/" target="_blank" rel="noopener" class="product-button">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="promo-banner">
+        <div class="promo-content">
+            <h2 class="promo-title">Get <em>50% Off</em> Your First Order</h2>
+            <p class="promo-text">Subscribe to our newsletter and receive an exclusive discount code for your first purchase.</p>
+            <a href="index.html#contact" class="promo-button">Subscribe Now</a>
+        </div>
+    </section>
+    
+    <section class="disclaimer">
+        <div class="disclaimer-content">
+            <h3 class="disclaimer-title">Disclaimer</h3>
+            <p class="disclaimer-text">All digital products sold through this shop are non-refundable. We are committed to providing high-quality digital resources to support your wellness journey. Please ensure that you review product details and compatibility before making a purchase. If you have any questions or concerns, please contact us at <a href="mailto:antonela@wellnessacademy.ie">antonela@wellnessacademy.ie</a>.</p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">ANTONELA BUTUC</div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/AntonelaButuc" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/antonela.m.butuc/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/in/antonelamariabutuc/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.tiktok.com/@antonelabutuc" target="_blank" rel="noopener">TikTok</a>
+        </div>
+        <div class="footer-copyright">© 2025 Wellness Academy | Dublin, Ireland</div>
+    </footer>
+    
+    <button class="back-to-top" id="backToTop">↑</button>
+    
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.getElementById('cursorGlow');
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+        
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+        
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const productCards = document.querySelectorAll('.product-card');
+        const productsGrid = document.getElementById('productsGrid');
+        const visibleCountEl = document.getElementById('visibleCount');
+        
+        function updateVisibleCount() {
+            let count = 0;
+            productCards.forEach(card => {
+                if (card.style.display !== 'none') {
+                    count++;
+                }
+            });
+            if (visibleCountEl) {
+                visibleCountEl.textContent = count;
+            }
+        }
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 50);
+                }
+            });
+        }, observerOptions);
+        
+        productCards.forEach((card, index) => {
+            card.style.transitionDelay = `${(index % 6) * 0.08}s`;
+            observer.observe(card);
+        });
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const category = tab.dataset.category;
+                
+                productCards.forEach(card => {
+                    const categories = card.dataset.categories.split(',');
+                    if (category === 'all' || categories.includes(category)) {
+                        card.style.display = 'block';
+                        card.classList.remove('visible');
+                        setTimeout(() => card.classList.add('visible'), 50);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                setTimeout(updateVisibleCount, 100);
+            });
+        });
+        
+        updateVisibleCount();
+    </script>
+</body>
+</html>

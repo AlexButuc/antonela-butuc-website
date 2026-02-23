@@ -1,0 +1,36 @@
+{
+  "name": "Antonela Butuc - Hormonal Pattern Tracker",
+  "short_name": "Pattern Tracker",
+  "description": "Track your hormonal patterns and understand your body better",
+  "start_url": "/tracker",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#C9A962",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icons/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/icons/screenshot-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}

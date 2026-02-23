@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonela Butuc | MSc Nutritionist & Brain Health Coach Dublin</title>
+    <meta name="description" content="Helping high-achieving women navigate midlife with grace and purpose. MSc Nutritionist & Brain Health Coach specializing in hormonal balance, EFT, and holistic wellness in Dublin, Ireland.">
+    <meta name="keywords" content="nutritionist dublin, brain health coach, hormonal balance, EFT tapping, women's health, menopause nutrition, weight management">
+    <meta name="author" content="Antonela Butuc">
+    <link rel="canonical" href="https://antonelabutuc.com/">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://antonelabutuc.com/">
+    <meta property="og:title" content="Antonela Butuc | MSc Nutritionist & Brain Health Coach">
+    <meta property="og:description" content="Helping high-achieving women navigate midlife with grace and purpose. Reclaim your energy, balance your hormones, and thrive.">
+    <meta property="og:image" content="profile.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://antonelabutuc.com/">
+    <meta name="twitter:title" content="Antonela Butuc | MSc Nutritionist & Brain Health Coach">
+    <meta name="twitter:description" content="Helping high-achieving women navigate midlife with grace and purpose.">
+    <meta name="twitter:image" content="profile.png">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A'/%3E%3Ctext x='50' y='65' font-family='Georgia,serif' font-size='50' fill='%23C9A962' text-anchor='middle'%3EAB%3C/text%3E%3C/svg%3E">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Nutritionist",
+        "name": "Antonela Butuc",
+        "description": "MSc Nutritionist & Brain Health Coach helping high-achieving women navigate midlife with grace and purpose.",
+        "url": "https://antonelabutuc.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dublin",
+            "addressCountry": "Ireland"
+        },
+        "priceRange": "€95-€120"
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --obsidian: #0A0A0A;
+            --gold: #C9A962;
+            --champagne: #F5EFE7;
+            --silver: #A8A8A8;
+            --cream: #FFFEF9;
+            --error: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--obsidian);
+            color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.04;
+            z-index: 1000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+        }
+        
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--obsidian) 0%, transparent 100%);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 1rem 5rem;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-family: 'Cormorant', serif;
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            opacity: 0.6;
+        }
+        
+        .logo-subtitle {
+            display: block;
+            font-size: 0.55rem;
+            letter-spacing: 0.3em;
+            color: var(--silver);
+            margin-top: 0.3rem;
+        }
+        
+        nav {
+            display: flex;
+            gap: 4rem;
+        }
+        
+        nav a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+        
+        nav a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 200;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 1px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 150;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-nav.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .mobile-nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            letter-spacing: 0.2em;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--gold);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            padding: 0 5rem;
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .hero-label::before {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+        }
+        
+        .hero-title {
+            font-family: 'Cormorant', serif;
+            font-size: 5.5rem;
+            font-weight: 300;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.9;
+            margin-bottom: 3rem;
+            max-width: 550px;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+            background: transparent;
+        }
+        
+        .hero-cta:hover {
+            background: var(--gold);
+            color: var(--obsidian);
+        }
+        
+        .hero-visual {
+            position: absolute;
+            right: 5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 550px;
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            animation: fadeIn 1.5s ease-out 0.3s backwards;
+            overflow: hidden;
+        }
+        
+        .hero-visual-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+        
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.5) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--silver);
+        }
+        
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            margin: 1rem auto;
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .about {
+            padding: 15rem 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            position: relative;
+        }
+        
+        .about::before {
+            content: 'ABOUT';
+            position: absolute;
+            top: 10rem;
+            right: 5rem;
+            font-size: 12rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: rgba(201, 169, 98, 0.03);
+            pointer-events: none;
+        }
+        
+        .about-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: filter 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            filter: grayscale(0%);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.3) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            right: -2rem;
+            bottom: -2rem;
+            border: 1px solid rgba(201, 169, 98, 0.3);
+            z-index: -1;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .about-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+        
+        .about-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+        
+        .about-text {
+            font-size: 0.95rem;
+            font-weight: 200;
+            line-height: 2;
+            color: var(--silver);
+            margin-bottom: 1.5rem;
+        }
+        
+        .credentials {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .credential {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(201, 169, 98, 0.3);
+        }
+        
+        .services {
+            padding: 10rem 5rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 98, 0.02) 50%, transparent 100%);
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .services-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            font-weight: 300;
+        }
+        
+        .services-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--silver);
+            margin-top: 1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            background: rgba(10, 10, 10, 0.5);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            border-color: rgba(201, 169, 98, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .service-number {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 2rem;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .philosophy {
+            padding: 10rem 5rem;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 98, 0.02) 50%, transparent 100%);
+            position: relative;
+        }
+        
+        .philosophy::before {
+            content: '☽';
+            position: absolute;
+            top: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+        
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .philosophy-text {
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--cream);
+        }
+        
+        .service-name {
+            font-family: 'Cormorant', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-desc {
+            font-size: 0.85rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+        }
+        
+        .service-price {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+        
+        .workshops {
+            padding: 8rem 5rem;
+            background: rgba(201, 169, 98, 0.02);
+        }
+        
+        .workshops-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .workshops-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            font-weight: 300;
+        }
+        
+        .workshops-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .workshop-card {
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            padding: 2.5rem;
+            transition: all 0.5s ease;
+            background: rgba(10, 10, 10, 0.5);
+        }
+        
+        .workshop-card:hover {
+            border-color: rgba(201, 169, 98, 0.4);
+        }
+        
+        .workshop-card h3 {
+            font-family: 'Cormorant', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .workshop-card p {
+            font-size: 0.85rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+        }
+        
+        .lead-magnet {
+            padding: 10rem 5rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 98, 0.03) 50%, transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lead-magnet-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            max-width: 1000px;
+            align-items: center;
+        }
+        
+        .lead-magnet-content h2 {
+            font-family: 'Cormorant', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .lead-magnet-content p {
+            font-size: 0.95rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .lead-magnet-content .highlight {
+            color: var(--gold);
+            font-style: italic;
+        }
+        
+        .lead-magnet-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .lead-magnet-form .form-field {
+            border-bottom: 1px solid rgba(201, 169, 98, 0.3);
+            padding-bottom: 1rem;
+            position: relative;
+        }
+        
+        .lead-magnet-form .form-field label {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--silver);
+            margin-bottom: 0.8rem;
+        }
+        
+        .lead-magnet-form .form-field input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            color: var(--cream);
+            outline: none;
+            font-family: inherit;
+        }
+        
+        .lead-magnet-form .form-field input::placeholder {
+            color: rgba(168, 168, 168, 0.5);
+        }
+        
+        .lead-magnet-form .form-field.error {
+            border-color: var(--error);
+        }
+        
+        .lead-magnet-form .form-field .error-message {
+            position: absolute;
+            bottom: -1.5rem;
+            left: 0;
+            font-size: 0.65rem;
+            color: var(--error);
+        }
+        
+        .lead-magnet-form .form-submit {
+            background: var(--gold);
+            color: var(--obsidian);
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: inherit;
+            margin-top: 1rem;
+        }
+        
+        .lead-magnet-form .form-submit:hover {
+            background: var(--champagne);
+        }
+        
+        .lead-magnet-form .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .form-success {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .form-success h3 {
+            font-family: 'Cormorant', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .form-success p {
+            font-size: 0.9rem;
+            color: var(--silver);
+        }
+        
+        .testimonials {
+            padding: 15rem 5rem;
+            text-align: center;
+        }
+        
+        .testimonials-title {
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 4rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 2rem;
+        }
+        
+        .testimonial-slide .quote {
+            font-family: 'Cormorant', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: var(--cream);
+        }
+        
+        .testimonial-slide .author {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+        }
+        
+        .testimonials-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .testimonial-dot.active {
+            background: var(--gold);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            padding: 2.5rem;
+            text-align: left;
+            background: rgba(10, 10, 10, 0.3);
+        }
+        
+        .testimonial-card .quote {
+            font-family: 'Cormorant', serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--cream);
+        }
+        
+        .testimonial-card .author {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+        
+        .faq {
+            padding: 10rem 5rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 98, 0.02) 50%, transparent 100%);
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .faq-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            font-weight: 300;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(201, 169, 98, 0.15);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 2rem 0;
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+        }
+        
+        .faq-question h3 {
+            font-family: 'Cormorant', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+            font-weight: 300;
+            padding-right: 2rem;
+        }
+        
+        .faq-question .icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question .icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer p {
+            padding-bottom: 2rem;
+            font-size: 0.9rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .contact {
+            padding: 10rem 5rem;
+            border-top: 1px solid rgba(201, 169, 98, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+        }
+        
+        .contact-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-text {
+            font-size: 0.9rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            font-size: 0.85rem;
+            color: var(--silver);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .form-field {
+            border-bottom: 1px solid rgba(201, 169, 98, 0.3);
+            padding-bottom: 1rem;
+            position: relative;
+        }
+        
+        .form-field label {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--silver);
+            margin-bottom: 0.8rem;
+        }
+        
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            color: var(--cream);
+            outline: none;
+            font-family: inherit;
+            resize: none;
+        }
+        
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: rgba(168, 168, 168, 0.5);
+        }
+        
+        .form-field.error {
+            border-color: var(--error);
+        }
+        
+        .form-field .error-message {
+            position: absolute;
+            bottom: -1.5rem;
+            left: 0;
+            font-size: 0.65rem;
+            color: var(--error);
+        }
+        
+        .form-submit {
+            background: var(--gold);
+            color: var(--obsidian);
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: inherit;
+        }
+        
+        .form-submit:hover {
+            background: var(--champagne);
+        }
+        
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--gold);
+            background: rgba(10, 10, 10, 0.9);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 90;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .back-to-top:hover {
+            background: var(--gold);
+            color: var(--obsidian);
+        }
+        
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.98);
+            border-top: 1px solid rgba(201, 169, 98, 0.2);
+            padding: 1.5rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 200;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+        
+        .cookie-text {
+            font-size: 0.8rem;
+            color: var(--silver);
+            max-width: 600px;
+        }
+        
+        .cookie-text a {
+            color: var(--gold);
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .cookie-btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .cookie-btn.accept {
+            background: var(--gold);
+            color: var(--obsidian);
+            border: none;
+        }
+        
+        .cookie-btn.decline {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        
+        .cookie-btn:hover {
+            opacity: 0.8;
+        }
+        
+        footer {
+            padding: 3rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(201, 169, 98, 0.1);
+        }
+        
+        .footer-logo {
+            font-family: 'Cormorant', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 0.3em;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-social a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-copyright {
+            font-size: 0.65rem;
+            color: var(--silver);
+            letter-spacing: 0.1em;
+        }
+        
+        @media (max-width: 1024px) {
+            header {
+                padding: 1.5rem 3rem;
+            }
+            
+            .hero-content {
+                padding: 0 3rem;
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .hero-visual {
+                display: none;
+            }
+            
+            .about {
+                padding: 10rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .about::before {
+                font-size: 8rem;
+            }
+            
+            .services {
+                padding: 8rem 3rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .workshops {
+                padding: 6rem 3rem;
+            }
+            
+            .workshops-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .lead-magnet {
+                padding: 8rem 3rem;
+            }
+            
+            .lead-magnet-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .testimonials {
+                padding: 10rem 3rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq {
+                padding: 8rem 3rem;
+            }
+            
+            .contact {
+                padding: 8rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            footer {
+                padding: 2rem 3rem;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            nav {
+                gap: 2rem;
+            }
+            
+            .cookie-banner {
+                padding: 1.5rem 3rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-nav {
+                display: flex;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .hero-content {
+                padding: 0 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .scroll-indicator {
+                left: 1.5rem;
+            }
+            
+            .about {
+                padding: 8rem 1.5rem;
+            }
+            
+            .about::before {
+                font-size: 5rem;
+                top: 5rem;
+                right: 1rem;
+            }
+            
+            .about-title {
+                font-size: 2.2rem;
+            }
+            
+            .services {
+                padding: 6rem 1.5rem;
+            }
+            
+            .services-title {
+                font-size: 2rem;
+            }
+            
+            .workshops {
+                padding: 4rem 1.5rem;
+            }
+            
+            .workshops-title {
+                font-size: 2rem;
+            }
+            
+            .lead-magnet {
+                padding: 6rem 1.5rem;
+            }
+            
+            .lead-magnet-content h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonials {
+                padding: 6rem 1.5rem;
+            }
+            
+            .testimonials-title {
+                font-size: 1.5rem;
+            }
+            
+            .testimonial-slide .quote {
+                font-size: 1.3rem;
+            }
+            
+            .faq {
+                padding: 6rem 1.5rem;
+            }
+            
+            .faq-title {
+                font-size: 2rem;
+            }
+            
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+            
+            .contact {
+                padding: 6rem 1.5rem;
+            }
+            
+            .contact-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    
+    <header id="header">
+        <a href="#" class="logo">
+            ANTONELA <span>BUTUC</span>
+            <span class="logo-subtitle">MSc Nutritionist & Brain Health Coach</span>
+        </a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="shop.html">Shop</a>
+            <a href="#testimonials">Stories</a>
+            <a href="#faq">FAQ</a>
+            <a href="https://antonelabutuc.com/contact/">Contact</a>
+            <a href="limba-romana.html">Română</a>
+        </nav>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="shop.html">Shop</a>
+        <a href="#testimonials">Stories</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://antonelabutuc.com/contact/">Contact</a>
+        <a href="limba-romana.html">Română</a>
+    </div>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-label">Holistic Health Coaching</p>
+            <h1 class="hero-title">Heal – Grow – <em>Thrive</em></h1>
+            <p class="hero-subtitle">Helping high-achieving women navigate midlife with grace, strength, and purpose. Reclaim your energy, balance your hormones, and break free from the patterns keeping you stuck.</p>
+            <a href="https://antonelabutuc.com/contact/" class="hero-cta">Book Your Consultation</a>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-visual-inner">
+                <img src="profile.png" alt="Antonela Butuc - MSc Nutritionist & Brain Health Coach">
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="profile.png" alt="Antonela Butuc">
+        </div>
+        <div class="about-content">
+            <p class="about-label">The Approach</p>
+            <h2 class="about-title">Curated wellness for the exceptional</h2>
+            <p class="about-text">I'm on a mission to help high-achieving women navigate the powerful transitions of midlife with grace, strength, and purpose. Through a holistic approach integrating nutrition, EFT (Emotional Freedom Techniques), brain health, and energetic alignment, I guide you to reclaim your energy, align with your body, and reconnect with the vibrant, confident woman you are.</p>
+            <p class="about-text">With degrees from the University of Chester, UK and Carol Davila University of Medicine and Pharmacy, Romania, I bridge cutting-edge research with real-life practicality—guiding you through the confusion of nutrition, hormones, and brain health.</p>
+            <div class="credentials">
+                <span class="credential">15+ Years Experience</span>
+                <span class="credential">MSc Nutrition</span>
+                <span class="credential">Brain Health Coach</span>
+                <span class="credential">Master EFT Practitioner</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="philosophy" id="philosophy">
+        <div class="philosophy-content">
+            <p class="philosophy-text">"True transformation embraces every aspect of our being—light and shadow, feminine and masculine. Through EFT and nutritional wisdom, we integrate the full spectrum of self, creating wholeness from within."</p>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="services-header">
+            <h2 class="services-title">How We Work Together</h2>
+            <p class="services-subtitle">Personalized Nutrition & Wellness</p>
+        </div>
+        <div class="services-grid">
+            <a href="https://antonelabutuc.com/contact/" class="service-card">
+                <div class="service-number">01</div>
+                <div class="service-icon">🔬</div>
+                <h3 class="service-name">Nutrition Consultations</h3>
+                <p class="service-desc">Women's health, PMS, PCOS, perimenopause, menopause, weight management, metabolic syndrome, digestive disorders, brain health, and anxiety. In-clinic and online sessions available.</p>
+                <p class="service-price">Initial €120 | Follow-up €95</p>
+            </a>
+            <a href="https://antonelabutuc.com/contact/" class="service-card">
+                <div class="service-number">02</div>
+                <div class="service-icon">⚖️</div>
+                <h3 class="service-name">EFT / Tapping Sessions</h3>
+                <p class="service-desc">Emotional Freedom Technique combines psychology and acupressure to address emotional, mental, and physical challenges. Release emotional blockages, reduce stress, and promote overall well-being.</p>
+                <p class="service-price">€100 per session</p>
+            </a>
+            <a href="https://antonelabutuc.com/contact/" class="service-card">
+                <div class="service-number">03</div>
+                <div class="service-icon">🔮</div>
+                <h3 class="service-name">Workshops & Talks</h3>
+                <p class="service-desc">Empowering wellbeing talks and workshops for schools and organizations. Focus on stress management, work-life balance, mental health, and the crucial role of nutrition.</p>
+                <p class="service-price">Contact for details</p>
+            </a>
+            <a href="https://antonelabutuc.com/contact/" class="service-card">
+                <div class="service-number">04</div>
+                <div class="service-icon">✨</div>
+                <h3 class="service-name">Transformation Programs</h3>
+                <p class="service-desc">Comprehensive 3-6 month programs combining nutrition, EFT, and brain health coaching. For those ready for deep, lasting transformation in their relationship with food, body, and self.</p>
+                <p class="service-price">From €297</p>
+            </a>
+        </div>
+    </section>
+    
+    <section class="workshops">
+        <div class="workshops-header">
+            <h2 class="workshops-title">Upcoming Workshops</h2>
+        </div>
+        <div class="workshops-grid">
+            <div class="workshop-card">
+                <h3>The No-Stress Exam Success Workshop</h3>
+                <p>Empowering students with practical tools for stress management, focus, and peak performance during exam periods.</p>
+            </div>
+            <div class="workshop-card">
+                <h3>Discover EFT Workshop</h3>
+                <p>Learn the fundamentals of Emotional Freedom Technique and how to use tapping for stress relief, anxiety management, and emotional well-being.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="lead-magnet" id="lead-magnet">
+        <div class="lead-magnet-container">
+            <div class="lead-magnet-content">
+                <h2>Hormonal Balance Guide</h2>
+                <p>An e-book guide that includes practical resources to help you balance your hormones naturally.</p>
+                <p class="highlight">Get the first step to increase your energy, lose weight and feel like yourself again.</p>
+            </div>
+            <form class="lead-magnet-form" id="leadMagnetForm">
+                <div class="form-field">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-field">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <span class="error-message"></span>
+                </div>
+                <button type="submit" class="form-submit">Yes, I Want It</button>
+            </form>
+            <div class="form-success" id="leadMagnetSuccess" style="display: none;">
+                <h3>Thank You!</h3>
+                <p>Check your inbox for your free Hormonal Balance Guide.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <h2 class="testimonials-title">Client Love</h2>
+        <div class="testimonials-slider">
+            <div class="testimonials-track" id="testimonialsTrack">
+                <div class="testimonial-slide">
+                    <p class="quote">"I've been struggling with my weight, sugar cravings and depression for years. With just a few sessions, my need to use food for comfort nearly vanished. I've lost over 40 pounds, and I've never felt better."</p>
+                    <p class="author">— Juliana</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="quote">"The stress in my life used to be overwhelming. Thanks to this program, I've learned effective ways to manage it and feel so much calmer."</p>
+                    <p class="author">— Isabella, 46</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="quote">"Anxiety was like a constant buzzing I couldn't escape. EFT was weird at first, but that tapping – it really works! I have the tools to manage it. It's like finally getting some peace in my head."</p>
+                    <p class="author">— Jessa, 23</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="quote">"I felt like I was dragging myself through every day. Nutrition helped a little, but EFT was the game-changer. Now, I have energy I haven't felt in years!"</p>
+                    <p class="author">— Fiona, 43</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="quote">"Anxiety controlled my life. I was always tense and couldn't sleep, and it was exhausting. Diet and exercise helped, but EFT was the game-changer. Tapping made me feel calmer in ways I never thought possible."</p>
+                    <p class="author">— Mike, 31</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonials-nav" id="testimonialsNav"></div>
+    </section>
+    
+    <section class="faq" id="faq">
+        <div class="faq-header">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>How does your coaching process work?</h3>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>My coaching process is rooted in a holistic and individualised approach. It begins with an in-depth assessment of your symptoms, unique challenges, goals, and values. Together, we'll develop a personalised roadmap that addresses gut health, hormonal balance, and blood sugar regulation. Through a combination of mindset and emotional freedom technique work, personalised nutritional strategies, and ongoing accountability, I will guide you towards achieving your health objectives step by step.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>What makes your coaching style unique and effective?</h3>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>The integration of emotional well-being and nutritional expertise sets my coaching style apart. I create lasting and sustainable transformations by addressing health's physical and emotional aspects. My extensive background as a master EFT practitioner, brain health coach, and nutritional therapist equips me with the skills to support your holistic well-being and empower you to overcome any obstacles that may arise during your journey.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Who is an ideal candidate for your coaching services?</h3>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>My coaching services suit individuals dealing with gut issues, hormonal imbalances, and blood sugar regulation challenges. If you're seeking a comprehensive approach to address these health aspects and are open to making positive changes in your life, my coaching is designed to support your specific needs and help you achieve your health and happiness goals.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>What kind of transformation can a client expect?</h3>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Clients can expect transformative results in their overall well-being. They experience increased energy, reduced digestive discomfort, stabilised moods, and improved emotional well-being by focusing on gut health, hormonal balance, and blood sugar regulation. Many clients also achieve sustainable weight loss and enhanced self-confidence, leading to a more fulfilled and joyful life.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Are consultations virtual?</h3>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, 100% online. That means no embarrassing weekly weigh-ins, no uncomfortable, awkward confessional sessions where you sit around staring at everyone else in the group and feel judged. Virtual consultations provide comfort, convenience, and privacy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div>
+            <h2 class="contact-title">Begin Your Journey</h2>
+            <p class="contact-text">You don't have to go through this journey alone. I am here to support you in making lasting changes that bring health, freedom, and peace into your life, empowering you to thrive on your terms.</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:antonela@wellnessacademy.ie">antonela@wellnessacademy.ie</a></p>
+                <p><strong>Location:</strong> Dublin, Ireland</p>
+            </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+            <div class="form-field">
+                <label>Full Name</label>
+                <input type="text" name="name" required>
+                <span class="error-message"></span>
+            </div>
+            <div class="form-field">
+                <label>Email Address</label>
+                <input type="email" name="email" required>
+                <span class="error-message"></span>
+            </div>
+            <div class="form-field">
+                <label>Message</label>
+                <textarea rows="3" name="message" required></textarea>
+                <span class="error-message"></span>
+            </div>
+                <button type="submit" class="form-submit">Request Consultation</button>
+            </form>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">ANTONELA BUTUC</div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/AntonelaButuc" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/antonela.m.butuc/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/in/antonelamariabutuc/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.tiktok.com/@antonelabutuc" target="_blank" rel="noopener">TikTok</a>
+        </div>
+        <div class="footer-copyright">© 2025 Wellness Academy | Dublin, Ireland</div>
+    </footer>
+    
+    <button class="back-to-top" id="backToTop">↑</button>
+    
+    <div class="cookie-banner" id="cookieBanner">
+        <p class="cookie-text">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="#">Learn more</a></p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn accept" id="cookieAccept">Accept</button>
+            <button class="cookie-btn decline" id="cookieDecline">Decline</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.getElementById('cursorGlow');
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+        
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+        
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        const testimonialsTrack = document.getElementById('testimonialsTrack');
+        const testimonialsNav = document.getElementById('testimonialsNav');
+        const slides = testimonialsTrack.querySelectorAll('.testimonial-slide');
+        let currentSlide = 0;
+        
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goToSlide(i));
+            testimonialsNav.appendChild(dot);
+        });
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            testimonialsTrack.style.transform = 'translateX(-' + (index * 100) + '%)';
+            testimonialsNav.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }, 6000);
+        
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        function validateForm(form) {
+            let isValid = true;
+            form.querySelectorAll('.form-field').forEach(field => {
+                const input = field.querySelector('input, textarea');
+                const errorMsg = field.querySelector('.error-message');
+                if (input && input.required && !input.value.trim()) {
+                    field.classList.add('error');
+                    if (errorMsg) errorMsg.textContent = 'This field is required';
+                    isValid = false;
+                } else if (input && input.type === 'email' && input.value && !validateEmail(input.value)) {
+                    field.classList.add('error');
+                    if (errorMsg) errorMsg.textContent = 'Please enter a valid email';
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                    if (errorMsg) errorMsg.textContent = '';
+                }
+            });
+            return isValid;
+        }
+        
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validateForm(contactForm)) {
+                alert('Thank you! Your consultation request has been received. I will get back to you soon.');
+                contactForm.reset();
+            }
+        });
+        
+        const leadMagnetForm = document.getElementById('leadMagnetForm');
+        const leadMagnetSuccess = document.getElementById('leadMagnetSuccess');
+        leadMagnetForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validateForm(leadMagnetForm)) {
+                leadMagnetForm.style.display = 'none';
+                leadMagnetSuccess.style.display = 'block';
+            }
+        });
+        
+        const cookieBanner = document.getElementById('cookieBanner');
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => cookieBanner.classList.add('show'), 1000);
+        }
+        
+        document.getElementById('cookieAccept').addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('show');
+        });
+        
+        document.getElementById('cookieDecline').addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieBanner.classList.remove('show');
+        });
+    </script>
+</body>
+</html>

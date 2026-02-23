@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonela Butuc | Nutriționist & Coach pentru Sănătatea Creierului</title>
+    <meta name="description" content="Ghidez femeile în a naviga perioada de mijloc a vieții cu grație și putere. Nutriționist și Coach pentru Sănătatea Creierului, specializată în echilibrul hormonal, EFT și starea de bine holistică.">
+    <meta name="keywords" content="nutriționist, coach sănătate creier, echilibru hormonal, EFT tapping, sănătate femei, menopauză, transformare personală">
+    <meta name="author" content="Antonela Butuc">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A'/%3E%3Ctext x='50' y='65' font-family='Georgia,serif' font-size='50' fill='%23C9A962' text-anchor='middle'%3EAB%3C/text%3E%3C/svg%3E">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --obsidian: #0A0A0A;
+            --gold: #C9A962;
+            --champagne: #F5EFE7;
+            --silver: #A8A8A8;
+            --cream: #FFFEF9;
+            --moon-glow: rgba(201, 169, 98, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--obsidian);
+            color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        .moon-glow-bg {
+            position: fixed;
+            top: -300px;
+            right: -300px;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--moon-glow) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.04;
+            z-index: 1000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            padding: 2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--obsidian) 0%, transparent 100%);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 1rem 5rem;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-family: 'Cormorant', serif;
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            opacity: 0.6;
+        }
+        
+        .logo-subtitle {
+            display: block;
+            font-size: 0.55rem;
+            letter-spacing: 0.3em;
+            color: var(--silver);
+            margin-top: 0.3rem;
+        }
+        
+        nav {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        nav a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+        
+        nav a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 200;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 1px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 150;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-nav.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .mobile-nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            letter-spacing: 0.2em;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--gold);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 0 2rem;
+        }
+        
+        .moon-symbol {
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.3;
+            margin-bottom: 2rem;
+            animation: moonPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes moonPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+        }
+        
+        .hero-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-title {
+            font-family: 'Cormorant', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+        
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+            background: transparent;
+        }
+        
+        .hero-cta:hover {
+            background: var(--gold);
+            color: var(--obsidian);
+        }
+        
+        .section-divider {
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+            margin: 4rem auto;
+        }
+        
+        .shadow-section {
+            padding: 10rem 5rem;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 98, 0.02) 50%, transparent 100%);
+            position: relative;
+        }
+        
+        .shadow-section::before {
+            content: '☽';
+            position: absolute;
+            top: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.2;
+        }
+        
+        .shadow-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: var(--gold);
+        }
+        
+        .shadow-text {
+            font-size: 1.2rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .energy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 900px;
+            margin: 4rem auto 0;
+        }
+        
+        .energy-card {
+            padding: 3rem 2rem;
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            text-align: center;
+        }
+        
+        .energy-card:hover {
+            border-color: rgba(201, 169, 98, 0.4);
+        }
+        
+        .energy-symbol {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .energy-title {
+            font-family: 'Cormorant', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .energy-desc {
+            font-size: 0.9rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+        }
+        
+        .moon-cycle {
+            padding: 10rem 5rem;
+            background: rgba(201, 169, 98, 0.02);
+        }
+        
+        .moon-cycle-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .moon-cycle-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            font-weight: 300;
+        }
+        
+        .moon-cycle-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--silver);
+            margin-top: 1rem;
+        }
+        
+        .moon-phases {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .moon-phase {
+            padding: 3rem;
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        
+        .moon-phase:hover {
+            border-color: rgba(201, 169, 98, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .phase-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+        
+        .phase-name {
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .phase-desc {
+            font-size: 0.95rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .phase-theme {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0.7;
+        }
+        
+        .services {
+            padding: 10rem 5rem;
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .services-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            font-weight: 300;
+        }
+        
+        .services-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--silver);
+            margin-top: 1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            background: rgba(10, 10, 10, 0.5);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            border-color: rgba(201, 169, 98, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .service-number {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 2rem;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .service-name {
+            font-family: 'Cormorant', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-desc {
+            font-size: 0.85rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+        }
+        
+        .service-price {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+        
+        .testimonials {
+            padding: 10rem 5rem;
+            text-align: center;
+        }
+        
+        .testimonials-title {
+            font-family: 'Cormorant', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 4rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            padding: 2.5rem;
+            text-align: left;
+            background: rgba(10, 10, 10, 0.3);
+        }
+        
+        .testimonial-card .quote {
+            font-family: 'Cormorant', serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--cream);
+        }
+        
+        .testimonial-card .author {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+        }
+        
+        .contact {
+            padding: 10rem 5rem;
+            border-top: 1px solid rgba(201, 169, 98, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+        }
+        
+        .contact-title {
+            font-family: 'Cormorant', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-text {
+            font-size: 0.9rem;
+            font-weight: 200;
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            font-size: 0.85rem;
+            color: var(--silver);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .form-field {
+            border-bottom: 1px solid rgba(201, 169, 98, 0.3);
+            padding-bottom: 1rem;
+        }
+        
+        .form-field label {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--silver);
+            margin-bottom: 0.8rem;
+        }
+        
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            color: var(--cream);
+            outline: none;
+            font-family: inherit;
+            resize: none;
+        }
+        
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: rgba(168, 168, 168, 0.5);
+        }
+        
+        .form-submit {
+            background: var(--gold);
+            color: var(--obsidian);
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: inherit;
+        }
+        
+        .form-submit:hover {
+            background: var(--champagne);
+        }
+        
+        footer {
+            padding: 3rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(201, 169, 98, 0.1);
+        }
+        
+        .footer-logo {
+            font-family: 'Cormorant', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 0.3em;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-social a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-copyright {
+            font-size: 0.65rem;
+            color: var(--silver);
+            letter-spacing: 0.1em;
+        }
+        
+        .lang-switch {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+        }
+        
+        .lang-switch a {
+            color: var(--silver);
+            text-decoration: none;
+        }
+        
+        .lang-switch a:hover {
+            color: var(--gold);
+        }
+        
+        @media (max-width: 1024px) {
+            header {
+                padding: 1.5rem 3rem;
+            }
+            
+            nav {
+                gap: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .shadow-section,
+            .moon-cycle,
+            .services {
+                padding: 8rem 3rem;
+            }
+            
+            .energy-grid,
+            .moon-phases,
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact {
+                padding: 8rem 3rem;
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            footer {
+                padding: 2rem 3rem;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .mobile-nav {
+                display: flex;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .shadow-section,
+            .moon-cycle,
+            .services {
+                padding: 6rem 1.5rem;
+            }
+            
+            .shadow-title,
+            .moon-cycle-title,
+            .services-title {
+                font-size: 2rem;
+            }
+            
+            .contact {
+                padding: 6rem 1.5rem;
+            }
+            
+            .contact-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="moon-glow-bg"></div>
+    <div class="noise-overlay"></div>
+    
+    <header id="header">
+        <a href="#" class="logo">
+            ANTONELA <span>BUTUC</span>
+            <span class="logo-subtitle">Nutriționist & Coach pentru Sănătatea Creierului</span>
+        </a>
+        <nav>
+            <a href="#despre">Despre</a>
+            <a href="#servicii">Servicii</a>
+            <a href="#ciclu-lunar">Ciclu Lunar</a>
+            <a href="https://antonelabutuc.com/contact/">Contact</a>
+            <a href="index.html" class="lang-switch">English</a>
+        </nav>
+        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#despre">Despre</a>
+        <a href="#servicii">Servicii</a>
+        <a href="#ciclu-lunar">Ciclu Lunar</a>
+        <a href="https://antonelabutuc.com/contact/">Contact</a>
+        <a href="index.html">English</a>
+    </div>
+    
+    <section class="hero">
+        <div class="moon-symbol">☽</div>
+        <p class="hero-label">Coaching pentru Sănătate Holistică</p>
+        <h1 class="hero-title">Vindecă – Crește – <em>Înflori</em></h1>
+        <p class="hero-subtitle">Ghidez femeile în a naviga perioada de mijloc a vieții cu grație, putere și scop. Redescoperă-ți energia, echilibrează-ți hormonii și eliberează-te de tiparele care te țin blocată.</p>
+        <a href="https://antonelabutuc.com/contact/" class="hero-cta">Programează o Consultație</a>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <section class="shadow-section" id="despre">
+        <h2 class="shadow-title">Munca cu Umbra & Integrarea</h2>
+        <p class="shadow-text">Transformarea adevărată îmbrățișează fiecare aspect al ființei noastre – lumină și umbră, feminin și masculin. Prin EFT și înțelepciune nutrițională, integrăm întregul spectru al sinelui, creând integritate din interior.</p>
+        <p class="shadow-text">Când lucrăm cu umbra noastră, nu fugim de aspectele mai întunecate ale experienței umane. Le întâmpinăm cu compasiune și curiozitate, recunoscând că în adâncurile ființei noastre se află cea mai mare putere.</p>
+        
+        <div class="energy-grid">
+            <div class="energy-card">
+                <div class="energy-symbol">☽</div>
+                <h3 class="energy-title">Energia Feminină</h3>
+                <p class="energy-desc">Intuiție, receptivitate, flux și ciclicitate. Conectarea cu ritmurile naturale ale corpului și ale lunii. Capacitatea de a primi, de a simți profund, de a crea spațiu pentru transformare.</p>
+            </div>
+            <div class="energy-card">
+                <div class="energy-symbol">☀</div>
+                <h3 class="energy-title">Energia Masculină</h3>
+                <p class="energy-desc">Acțiune, structură, direcție și protecție. Puterea de a manifesta schimbarea, de a pune limite sănătoase, de a avansa cu hotărâre spre viziunea ta.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="moon-cycle" id="ciclu-lunar">
+        <div class="moon-cycle-header">
+            <h2 class="moon-cycle-title">Ciclu Lunar & Vindecare</h2>
+            <p class="moon-cycle-subtitle">Lucrează cu energiile lunare pentru transformare profundă</p>
+        </div>
+        <div class="moon-phases">
+            <div class="moon-phase">
+                <div class="phase-icon">🌑</div>
+                <h3 class="phase-name">Lună Nouă</h3>
+                <p class="phase-desc">Timpul pentru intenții noi și semințe de schimbare. În această fază, lucrăm cu setarea intențiilor, vizualizarea viitorului dorit și pregătirea terenului interior pentru creștere. Este momentul de liniște și reflecție.</p>
+                <p class="phase-theme">Intenție • Noi Începuturi • Posibilități</p>
+            </div>
+            <div class="moon-phase">
+                <div class="phase-icon">🌕</div>
+                <h3 class="phase-name">Lună Plină</h3>
+                <p class="phase-desc">Momentul eliberării și al iluminării. În plinătatea lunii, lucrăm cu eliberarea emoțională prin EFT, eliberarea tiparelor vechi și recunoașterea a ceea ce nu mai servește. Umbrele ies la lumină pentru a fi vindecate.</p>
+                <p class="phase-theme">Eliberare • Shadow Work • Transformare</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="servicii">
+        <div class="services-header">
+            <h2 class="services-title">Cum Lucrăm Împreună</h2>
+            <p class="services-subtitle">Nutriție & Wellness Personalizat</p>
+        </div>
+        <div class="services-grid">
+            <a href="https://antonelabutuc.com/contact/" class="service-card">
+                <div class="service-number">01</div>
+                <div class="service-icon">🔬</div>
+                <h3 class="service-name">Consultații de Nutriție</h3>
+                <p class="service-desc">Sănătatea femeilor, PMS, PCOS, perimenopauză, menopauză, gestionarea greutății, sindrom metabolic, tulburări digestive, sănătatea creierului și anxietate. Sesiuni în clinică și online.</p>
+                <p class="service-price">Inițială €120 | Urmărire €95</p>
+            </a>
+            <a href="https://antonelabutuc.com/contact/" class="service-card">
+                <div class="service-number">02</div>
+                <div class="service-icon">⚖️</div>
+                <h3 class="service-name">Sesiuni EFT / Tapping</h3>
+                <p class="service-desc">Tehnica de Eliberare Emoțională combină psihologia și acupresura pentru a aborda provocări emoționale, mentale și fizice. Eliberează blocajele emoționale, redu stresul și promovează starea generală de bine.</p>
+                <p class="service-price">€100 per sesiune</p>
+            </a>
+            <a href="https://antonelabutuc.com/contact/" class="service-card">
+                <div class="service-number">03</div>
+                <div class="service-icon">🔮</div>
+                <h3 class="service-name">Ateliere & Prezentări</h3>
+                <p class="service-desc">Prezentări și ateliere care împuternicesc starea de bine pentru școli și organizații. Focus pe gestionarea stresului, echilibrul viață-muncă, sănătatea mentală și rolul crucial al nutriției.</p>
+                <p class="service-price">Contact pentru detalii</p>
+            </a>
+            <a href="https://antonelabutuc.com/contact/" class="service-card">
+                <div class="service-number">04</div>
+                <div class="service-icon">✨</div>
+                <h3 class="service-name">Programe de Transformare</h3>
+                <p class="service-desc">Programe cuprinzătoare de 3-6 luni care combină nutriția, EFT și coaching pentru sănătatea creierului. Pentru cele pregătite pentru o transformare profundă și durabilă în relația cu mâncarea, corpul și sinele.</p>
+                <p class="service-price">De la €297</p>
+            </a>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimoniale">
+        <h2 class="testimonials-title">Povești de Transformare</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="quote">"Am luptat cu greutatea, pofta de dulce și depresia ani de zile. Doar cu câteva sesiuni, nevoia mea de a folosi mâncarea ca alinare aproape a dispărut. Am slăbit peste 18 kg și nu m-am simțit niciodată mai bine."</p>
+                <p class="author">— Juliana</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="quote">"Stresul din viața mea era copleșitor. Datorită acestui program, am învățat modalități eficiente de a-l gestiona și mă simt mult mai liniștită."</p>
+                <p class="author">— Isabella, 46 ani</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="quote">"Anxietatea era ca un zumzet constant de care nu puteam scăpa. EFT a fost ciudat la început, dar acel tapping – chiar funcționează! Am uneltele să o gestionez. E ca și cum aș avea în sfârșit puțină liniște în cap."</p>
+                <p class="author">— Jessa, 23 ani</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="quote">"Mă simțeam ca și cum mă târâm prin fiecare zi. Nutriția a ajutat puțin, dar EFT a fost schimbarea decisivă. Acum am o energie pe care n-am simțit-o de ani!"</p>
+                <p class="author">— Fiona, 43 ani</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div>
+            <h2 class="contact-title">Începe Călătoria Ta</h2>
+            <p class="contact-text">Nu trebuie să treci singură prin această călătorie. Sunt aici să te sprijin în a face schimbări durabile care aduc sănătate, libertate și pace în viața ta, împuternicindu-te să înflorești în propriii termeni.</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:antonela@wellnessacademy.ie">antonela@wellnessacademy.ie</a></p>
+                <p><strong>Locație:</strong> Dublin, Irlanda</p>
+            </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+            <div class="form-field">
+                <label>Nume Complet</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-field">
+                <label>Adresa de Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label>Mesaj</label>
+                <textarea rows="3" name="message" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Solicită Consultație</button>
+        </form>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">ANTONELA BUTUC</div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/AntonelaButuc" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/antonela.m.butuc/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/in/antonelamariabutuc/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="footer-copyright">© 2024 Antonela Butuc. Toate drepturile rezervate.</div>
+    </footer>
+    
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
