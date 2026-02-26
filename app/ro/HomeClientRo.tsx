@@ -123,13 +123,13 @@ export default function HomeClientRo() {
     <>
       {/* ── HEADER ── */}
       <header
-        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        className={`fixed w-full top-0 z-[100] flex justify-between items-center transition-all duration-300 ${
           scrolled
-            ? 'py-4 bg-ivory/[0.96] backdrop-blur-[14px] shadow-[0_1px_0_rgba(201,169,98,0.22),0_4px_24px_rgba(28,26,23,0.05)]'
-            : 'py-7'
+            ? 'py-4 px-8 lg:px-20 bg-ivory/[0.96] backdrop-blur-[14px] shadow-[0_1px_0_rgba(201,169,98,0.22),0_4px_24px_rgba(28,26,23,0.05)]'
+            : 'py-7 px-8 lg:px-20 bg-gradient-to-b from-ivory via-ivory/80 to-transparent'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-8 md:px-20 flex items-center justify-between">
+        <div className="flex items-center justify-between w-full">
           <Link href="/ro" className="no-underline">
             <span className="font-serif text-[1.55rem] font-light tracking-[0.42em] text-gold leading-none">
               ANTONELA <span className="opacity-60">BUTUC</span>
