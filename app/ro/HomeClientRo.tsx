@@ -129,43 +129,42 @@ export default function HomeClientRo() {
             : 'py-7 px-8 lg:px-20 bg-gradient-to-b from-ivory via-ivory/80 to-transparent'
         }`}
       >
-        <div className="flex items-center justify-between w-full">
-          <Link href="/ro" className="no-underline">
-            <span className="font-serif text-[1.55rem] font-light tracking-[0.42em] text-gold leading-none">
-              ANTONELA <span className="opacity-60">BUTUC</span>
-            </span>
-            <span className="block text-[0.52rem] tracking-[0.28em] text-stone mt-1.5 font-sans font-light">
-              NUTRIȚIONIST MSC & COACH PENTRU SĂNĂTATEA CREIERULUI
-            </span>
-          </Link>
+        <Link href="/ro" className="no-underline">
+          <span className="font-serif text-[1.55rem] font-light tracking-[0.42em] text-gold leading-none">
+            ANTONELA <span className="opacity-60">BUTUC</span>
+          </span>
+          <span className="block text-[0.52rem] tracking-[0.28em] text-stone mt-1.5 font-sans font-light">
+            MSc Nutritionist &amp; Brain Health Coach
+          </span>
+        </Link>
 
-          <nav className="hidden lg:flex items-center gap-14">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-stone text-[0.72rem] font-light tracking-[0.22em] uppercase hover:text-gold transition-colors no-underline relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {item.label}
-              </a>
-            ))}
-            <Link
-              href="/"
-              className="text-gold text-[0.72rem] font-light tracking-[0.22em] uppercase hover:text-gold-deep transition-colors no-underline"
+        <nav className="hidden lg:flex gap-14">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-stone text-[0.72rem] font-light tracking-[0.22em] uppercase hover:text-gold transition-colors no-underline relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
             >
-              English
-            </Link>
-          </nav>
-
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden flex flex-col gap-[5px] z-[200] bg-transparent border-none cursor-pointer"
+              {item.label}
+            </a>
+          ))}
+          <Link
+            href="/"
+            className="text-stone text-[0.72rem] font-light tracking-[0.22em] uppercase hover:text-gold transition-colors no-underline relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
           >
-            <span className={`w-[26px] h-px bg-gold transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[6px]' : ''}`} />
-            <span className={`w-[26px] h-px bg-gold transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`w-[26px] h-px bg-gold transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`} />
-          </button>
-        </div>
+            English
+          </Link>
+        </nav>
+
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden flex flex-col gap-[5px] cursor-pointer z-[200]"
+          aria-label="Toggle menu"
+        >
+          <span className={`w-[26px] h-px bg-gold transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-x-[5px] translate-y-[5px]' : ''}`} />
+          <span className={`w-[26px] h-px bg-gold transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+          <span className={`w-[26px] h-px bg-gold transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 translate-x-[5px] -translate-y-[5px]' : ''}`} />
+        </button>
       </header>
 
       {/* ── MOBILE NAV ── */}
