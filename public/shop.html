@@ -132,6 +132,19 @@
         nav a.active { color: var(--gold); }
         nav a.active::after { width: 100%; }
         
+        nav a.tracker-link {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.6rem 1.2rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        nav a.tracker-link::after { display: none; }
+        nav a.tracker-link:hover {
+            background: var(--gold);
+            color: var(--ivory);
+        }
+        
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
@@ -770,6 +783,7 @@
             <a href="/#faq">FAQ</a>
             <a href="https://antonelabutuc.com/contact/">Contact</a>
             <a href="/ro">Romana</a>
+            <a href="/tracker" class="tracker-link">Pattern Tracker</a>
         </nav>
         <div class="mobile-menu-toggle" id="mobileMenuToggle">
             <span></span>
@@ -786,6 +800,7 @@
         <a href="/#faq">FAQ</a>
         <a href="https://antonelabutuc.com/contact/">Contact</a>
         <a href="/ro">Romana</a>
+        <a href="/tracker" style="color: var(--gold);">Pattern Tracker</a>
     </div>
     
     <section class="hero">

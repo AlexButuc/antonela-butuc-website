@@ -81,14 +81,17 @@ export default function HomeClient() {
             { href: '#testimonials', label: 'Stories' },
             { href: '#faq', label: 'FAQ' },
             { href: 'https://antonelabutuc.com/contact/', label: 'Contact' },
-            { href: '/ro', label: 'Romana', isLink: true }
+            { href: '/ro', label: 'Romana', isLink: true },
+            { href: '/tracker', label: 'Pattern Tracker', isLink: true, isHighlight: true }
           ].map((item) =>
             item.isLink ? (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-stone text-[0.72rem] font-light tracking-[0.22em] uppercase hover:text-gold transition-colors no-underline relative
-                  after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+                className={item.isHighlight
+                  ? "text-[0.68rem] font-normal tracking-[0.18em] uppercase no-underline px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-ivory transition-all duration-300"
+                  : "text-stone text-[0.72rem] font-light tracking-[0.22em] uppercase hover:text-gold transition-colors no-underline relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+                }
               >
                 {item.label}
               </Link>
@@ -138,6 +141,13 @@ export default function HomeClient() {
             {label}
           </a>
         ))}
+        <Link
+          href="/tracker"
+          onClick={() => setMobileMenuOpen(false)}
+          className="text-gold no-underline font-serif text-[2.2rem] tracking-[0.18em] hover:text-gold-deep transition-colors"
+        >
+          Pattern Tracker
+        </Link>
       </div>
 
       {/* ── HERO ── */}

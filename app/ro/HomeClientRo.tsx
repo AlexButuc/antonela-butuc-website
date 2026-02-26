@@ -154,6 +154,12 @@ export default function HomeClientRo() {
           >
             English
           </Link>
+          <Link
+            href="/tracker"
+            className="text-[0.68rem] font-normal tracking-[0.18em] uppercase no-underline px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-ivory transition-all duration-300"
+          >
+            Pattern Tracker
+          </Link>
         </nav>
 
         <button
@@ -186,9 +192,16 @@ export default function HomeClientRo() {
         <Link
           href="/"
           onClick={() => setMobileMenuOpen(false)}
-          className="font-serif text-[2.2rem] text-gold tracking-[0.18em] no-underline"
+          className="font-serif text-[2.2rem] text-charcoal tracking-[0.18em] hover:text-terracotta transition-colors no-underline"
         >
           English
+        </Link>
+        <Link
+          href="/tracker"
+          onClick={() => setMobileMenuOpen(false)}
+          className="font-serif text-[2.2rem] text-gold tracking-[0.18em] hover:text-gold-deep transition-colors no-underline"
+        >
+          Pattern Tracker
         </Link>
       </div>
 
