@@ -138,7 +138,7 @@ export default function HomeClientRo() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex gap-14">
+        <nav className="hidden lg:flex items-center gap-14">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -154,11 +154,18 @@ export default function HomeClientRo() {
           >
             English
           </Link>
+
+          <div className="w-px h-5 bg-gold/25 ml-2" />
           <Link
             href="/tracker"
-            className="text-[0.68rem] font-normal tracking-[0.18em] uppercase no-underline px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-ivory transition-all duration-300"
+            className="group relative flex items-center gap-3 bg-terracotta text-ivory no-underline px-6 py-2.5 text-[0.62rem] font-normal tracking-[0.22em] uppercase transition-all duration-[400ms] hover:bg-charcoal hover:shadow-[0_4px_20px_rgba(184,100,74,0.25)]"
           >
-            Pattern Tracker
+            <span className="relative z-[1] flex items-center gap-2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-70">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+              Pattern Tracker
+            </span>
           </Link>
         </nav>
 
@@ -196,13 +203,20 @@ export default function HomeClientRo() {
         >
           English
         </Link>
-        <Link
-          href="/tracker"
-          onClick={() => setMobileMenuOpen(false)}
-          className="font-serif text-[2.2rem] text-gold tracking-[0.18em] hover:text-gold-deep transition-colors no-underline"
-        >
-          Pattern Tracker
-        </Link>
+        {/* Tracker CTA */}
+        <div className="mt-4 pt-8 border-t border-gold/20 flex flex-col items-center gap-3">
+          <Link
+            href="/tracker"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-3 bg-terracotta text-ivory no-underline px-10 py-4 text-[0.68rem] font-normal tracking-[0.25em] uppercase transition-all duration-300 hover:bg-charcoal"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+            Pattern Tracker
+          </Link>
+          <span className="text-[0.55rem] tracking-[0.2em] text-feather uppercase">Urmărește-ți tiparele hormonale</span>
+        </div>
       </div>
 
       {/* ── HERO ── */}

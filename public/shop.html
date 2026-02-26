@@ -133,16 +133,33 @@
         nav a.active::after { width: 100%; }
         
         nav a.tracker-link {
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 0.6rem 1.2rem;
+            background: var(--terracotta);
+            color: var(--ivory);
+            padding: 0.6rem 1.5rem;
             font-weight: 400;
-            transition: all 0.3s ease;
+            letter-spacing: 0.22em;
+            transition: all 0.4s ease;
+            margin-left: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+        nav a.tracker-link::before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 20px;
+            background: rgba(201,169,98,0.25);
+            position: absolute;
+            left: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
         nav a.tracker-link::after { display: none; }
         nav a.tracker-link:hover {
-            background: var(--gold);
-            color: var(--ivory);
+            background: var(--charcoal);
+            box-shadow: 0 4px 20px rgba(184,100,74,0.25);
         }
         
         .mobile-menu-toggle {
@@ -800,7 +817,7 @@
         <a href="/#faq">FAQ</a>
         <a href="https://antonelabutuc.com/contact/">Contact</a>
         <a href="/ro">Romana</a>
-        <a href="/tracker" style="color: var(--gold);">Pattern Tracker</a>
+        <a href="/tracker" style="background: var(--terracotta); color: var(--ivory); padding: 0.8rem 2rem; font-size: 1rem; letter-spacing: 0.15em; font-family: 'Outfit', sans-serif; text-transform: uppercase; margin-top: 1rem;">Pattern Tracker</a>
     </div>
     
     <section class="hero">

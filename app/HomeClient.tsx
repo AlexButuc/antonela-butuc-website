@@ -73,7 +73,7 @@ export default function HomeClient() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex gap-14">
+        <nav className="hidden lg:flex items-center gap-14">
           {[
             { href: '#about', label: 'About' },
             { href: '#services', label: 'Services' },
@@ -81,17 +81,14 @@ export default function HomeClient() {
             { href: '#testimonials', label: 'Stories' },
             { href: '#faq', label: 'FAQ' },
             { href: 'https://antonelabutuc.com/contact/', label: 'Contact' },
-            { href: '/ro', label: 'Romana', isLink: true },
-            { href: '/tracker', label: 'Pattern Tracker', isLink: true, isHighlight: true }
+            { href: '/ro', label: 'Romana', isLink: true }
           ].map((item) =>
             item.isLink ? (
               <Link
                 key={item.label}
                 href={item.href}
-                className={item.isHighlight
-                  ? "text-[0.68rem] font-normal tracking-[0.18em] uppercase no-underline px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-ivory transition-all duration-300"
-                  : "text-stone text-[0.72rem] font-light tracking-[0.22em] uppercase hover:text-gold transition-colors no-underline relative after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-                }
+                className="text-stone text-[0.72rem] font-light tracking-[0.22em] uppercase hover:text-gold transition-colors no-underline relative
+                  after:content-[''] after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.label}
               </Link>
@@ -106,6 +103,20 @@ export default function HomeClient() {
               </a>
             )
           )}
+
+          {/* Tracker CTA — separated by a fine divider */}
+          <div className="w-px h-5 bg-gold/25 ml-2" />
+          <Link
+            href="/tracker"
+            className="group relative flex items-center gap-3 bg-terracotta text-ivory no-underline px-6 py-2.5 text-[0.62rem] font-normal tracking-[0.22em] uppercase transition-all duration-[400ms] hover:bg-charcoal hover:shadow-[0_4px_20px_rgba(184,100,74,0.25)]"
+          >
+            <span className="relative z-[1] flex items-center gap-2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-70">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+              Pattern Tracker
+            </span>
+          </Link>
         </nav>
 
         {/* Mobile toggle */}
@@ -141,13 +152,20 @@ export default function HomeClient() {
             {label}
           </a>
         ))}
-        <Link
-          href="/tracker"
-          onClick={() => setMobileMenuOpen(false)}
-          className="text-gold no-underline font-serif text-[2.2rem] tracking-[0.18em] hover:text-gold-deep transition-colors"
-        >
-          Pattern Tracker
-        </Link>
+        {/* Tracker CTA */}
+        <div className="mt-4 pt-8 border-t border-gold/20 flex flex-col items-center gap-3">
+          <Link
+            href="/tracker"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-3 bg-terracotta text-ivory no-underline px-10 py-4 text-[0.68rem] font-normal tracking-[0.25em] uppercase transition-all duration-300 hover:bg-charcoal"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+            Pattern Tracker
+          </Link>
+          <span className="text-[0.55rem] tracking-[0.2em] text-feather uppercase">Track your hormonal patterns</span>
+        </div>
       </div>
 
       {/* ── HERO ── */}
