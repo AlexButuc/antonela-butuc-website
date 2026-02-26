@@ -60,8 +60,8 @@ export default function HomeClient() {
       <header
         className={`fixed w-full top-0 z-[100] flex justify-between items-center transition-all duration-300 ${
           headerScrolled
-            ? 'py-4 px-8 lg:px-20 bg-ivory/[0.96] backdrop-blur-sm shadow-[0_1px_0_rgba(201,169,98,0.22),0_4px_24px_rgba(28,26,23,0.05)]'
-            : 'py-7 px-8 lg:px-20'
+            ? 'py-4 px-8 lg:px-20 bg-ivory/[0.96] backdrop-blur-[14px] shadow-[0_1px_0_rgba(201,169,98,0.22),0_4px_24px_rgba(28,26,23,0.05)]'
+            : 'py-7 px-8 lg:px-20 bg-gradient-to-b from-ivory via-ivory/80 to-transparent'
         }`}
       >
         <Link href="/" className="no-underline">
