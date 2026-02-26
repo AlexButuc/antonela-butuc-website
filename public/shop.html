@@ -12,18 +12,25 @@
     <meta property="og:title" content="Shop | Antonela Butuc">
     <meta property="og:description" content="Digital wellness products to support your health journey.">
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A0A0A'/%3E%3Ctext x='50' y='65' font-family='Georgia,serif' font-size='50' fill='%23C9A962' text-anchor='middle'%3EAB%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FAFAF7'/%3E%3Ctext x='50' y='65' font-family='Georgia,serif' font-size='50' fill='%23C9A962' text-anchor='middle'%3EAB%3C/text%3E%3C/svg%3E">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --obsidian: #0A0A0A;
-            --gold: #C9A962;
-            --champagne: #F5EFE7;
-            --silver: #A8A8A8;
-            --cream: #FFFEF9;
+            --ivory:       #FAFAF7;
+            --blush:       #F4EBE3;
+            --sand:        #E8D5C4;
+            --terracotta:  #B8644A;
+            --terra-light: #F0DED6;
+            --gold:        #C9A962;
+            --gold-deep:   #A8893E;
+            --gold-pale:   #F5EBD6;
+            --charcoal:    #1C1A17;
+            --stone:       #6B6058;
+            --feather:     #B5AAA2;
+            --error: #c0392b;
         }
         
         * {
@@ -38,59 +45,48 @@
         
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--obsidian);
-            color: var(--cream);
+            background: var(--ivory);
+            color: var(--charcoal);
             overflow-x: hidden;
         }
         
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        /* Grain texture */
+        body::after {
+            content: '';
+            position: fixed; inset: 0;
             pointer-events: none;
-            opacity: 0.04;
-            z-index: 1000;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-        
-        .cursor-glow {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            transform: translate(-50%, -50%);
-            transition: all 0.1s ease;
+            z-index: 9999;
+            opacity: 0.022;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
         
         header {
             position: fixed;
             width: 100%;
             top: 0;
-            padding: 2rem 5rem;
+            padding: 1.8rem 5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.35s ease;
         }
         
         header.scrolled {
-            padding: 1rem 5rem;
+            padding: 1.1rem 5rem;
+            background: rgba(250,250,247,0.96);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 1px 0 rgba(201,169,98,0.22), 0 4px 24px rgba(28,26,23,0.05);
         }
         
         .logo {
             font-family: 'Cormorant', serif;
-            font-size: 1.6rem;
+            font-size: 1.55rem;
             font-weight: 300;
-            letter-spacing: 0.4em;
+            letter-spacing: 0.42em;
             color: var(--gold);
             text-decoration: none;
+            line-height: 1;
         }
         
         .logo span {
@@ -99,31 +95,42 @@
         
         .logo-subtitle {
             display: block;
-            font-size: 0.55rem;
-            letter-spacing: 0.3em;
-            color: var(--silver);
-            margin-top: 0.3rem;
+            font-size: 0.52rem;
+            letter-spacing: 0.28em;
+            color: var(--stone);
+            margin-top: 0.35rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
         }
         
         nav {
             display: flex;
-            gap: 4rem;
+            gap: 3.5rem;
         }
         
         nav a {
-            color: var(--silver);
+            color: var(--stone);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 300;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            transition: color 0.4s ease;
+            transition: color 0.3s ease;
+            position: relative;
         }
         
-        nav a:hover,
-        nav a.active {
-            color: var(--gold);
+        nav a::after {
+            content: '';
+            position: absolute; bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--gold);
+            transition: width 0.35s ease;
         }
+        
+        nav a:hover { color: var(--gold); }
+        nav a:hover::after { width: 100%; }
+        nav a.active { color: var(--gold); }
+        nav a.active::after { width: 100%; }
         
         .mobile-menu-toggle {
             display: none;
@@ -134,7 +141,7 @@
         }
         
         .mobile-menu-toggle span {
-            width: 25px;
+            width: 26px;
             height: 1px;
             background: var(--gold);
             transition: all 0.3s ease;
@@ -155,16 +162,13 @@
         .mobile-nav {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(10, 10, 10, 0.98);
+            inset: 0;
+            background: rgba(250,250,247,0.98);
             z-index: 150;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: 2.2rem;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
@@ -176,30 +180,36 @@
         }
         
         .mobile-nav a {
-            color: var(--cream);
+            color: var(--charcoal);
             text-decoration: none;
             font-family: 'Cormorant', serif;
-            font-size: 2rem;
-            letter-spacing: 0.2em;
+            font-size: 2.2rem;
+            letter-spacing: 0.18em;
             transition: color 0.3s ease;
         }
         
         .mobile-nav a:hover {
-            color: var(--gold);
+            color: var(--terracotta);
         }
         
         .hero {
             padding: 12rem 5rem 6rem;
             text-align: center;
             position: relative;
+            background: var(--blush);
         }
         
         .hero-label {
-            font-size: 0.65rem;
-            letter-spacing: 0.5em;
+            font-size: 0.62rem;
+            letter-spacing: 0.55em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--terracotta);
             margin-bottom: 1.5rem;
+            display: flex; align-items: center; justify-content: center; gap: 1rem;
+        }
+        
+        .hero-label::before, .hero-label::after {
+            content: ''; width: 32px; height: 1px; background: var(--terracotta);
         }
         
         .hero-title {
@@ -207,6 +217,7 @@
             font-size: 4rem;
             font-weight: 300;
             margin-bottom: 1rem;
+            color: var(--charcoal);
         }
         
         .hero-title em {
@@ -216,10 +227,11 @@
         
         .hero-subtitle {
             font-size: 1rem;
-            font-weight: 200;
-            color: var(--silver);
+            font-weight: 300;
+            color: var(--stone);
             max-width: 500px;
             margin: 0 auto;
+            line-height: 1.85;
         }
         
         .category-tabs {
@@ -228,13 +240,14 @@
             gap: 0.5rem;
             padding: 2rem 5rem;
             flex-wrap: wrap;
-            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+            border-bottom: 1px solid rgba(201, 169, 98, 0.15);
+            background: var(--ivory);
         }
         
         .category-tab {
             background: transparent;
-            border: 1px solid rgba(201, 169, 98, 0.2);
-            color: var(--silver);
+            border: 1px solid rgba(201, 169, 98, 0.25);
+            color: var(--stone);
             padding: 0.8rem 1.5rem;
             font-size: 0.7rem;
             letter-spacing: 0.15em;
@@ -252,21 +265,13 @@
         .category-tab.active {
             background: var(--gold);
             border-color: var(--gold);
-            color: var(--obsidian);
+            color: var(--ivory);
         }
         
         .products-section {
             padding: 4rem 5rem 8rem;
             position: relative;
-        }
-        
-        .products-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(rgba(201, 169, 98, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            pointer-events: none;
+            background: var(--ivory);
         }
         
         .products-section::after {
@@ -274,10 +279,12 @@
             position: absolute;
             top: 3rem;
             right: 3rem;
+            font-family: 'Cormorant', serif;
             font-size: 12rem;
             font-weight: 600;
-            letter-spacing: 0.2em;
-            color: rgba(201, 169, 98, 0.02);
+            letter-spacing: 0.15em;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(184,100,74,0.08);
             pointer-events: none;
         }
         
@@ -295,12 +302,12 @@
         
         .products-count {
             font-size: 0.75rem;
-            color: var(--silver);
+            color: var(--stone);
             letter-spacing: 0.1em;
         }
         
         .products-count span {
-            color: var(--gold);
+            color: var(--terracotta);
         }
         
         .products-grid {
@@ -316,9 +323,9 @@
         .product-card {
             border: 1px solid rgba(201, 169, 98, 0.15);
             transition: all 0.5s ease;
-            background: rgba(10, 10, 10, 0.5);
+            background: #fff;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(28, 26, 23, 0.06);
             opacity: 0;
             transform: translateY(20px);
         }
@@ -338,7 +345,7 @@
             width: 100%;
             aspect-ratio: 1;
             overflow: hidden;
-            background: rgba(201, 169, 98, 0.05);
+            background: var(--blush);
             position: relative;
         }
         
@@ -356,7 +363,7 @@
         .product-image-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(10, 10, 10, 0);
+            background: rgba(28, 26, 23, 0);
             transition: background 0.4s ease;
             display: flex;
             align-items: center;
@@ -365,7 +372,7 @@
         }
         
         .product-card:hover .product-image-overlay {
-            background: rgba(10, 10, 10, 0.4);
+            background: rgba(28, 26, 23, 0.35);
         }
         
         .quick-view {
@@ -373,7 +380,7 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
             background: var(--gold);
-            color: var(--obsidian);
+            color: var(--ivory);
             padding: 0.7rem 1.5rem;
             font-size: 0.6rem;
             letter-spacing: 0.15em;
@@ -390,13 +397,12 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
-            background: rgba(10, 10, 10, 0.9);
-            color: var(--gold);
+            background: var(--terracotta);
+            color: var(--ivory);
             padding: 0.35rem 0.9rem;
             font-size: 0.55rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            border: 1px solid rgba(201, 169, 98, 0.4);
             z-index: 3;
         }
         
@@ -407,7 +413,7 @@
             width: 36px;
             height: 36px;
             background: var(--gold);
-            color: var(--obsidian);
+            color: var(--ivory);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -433,6 +439,7 @@
             margin-bottom: 0.8rem;
             line-height: 1.4;
             min-height: 3rem;
+            color: var(--charcoal);
         }
         
         .product-price {
@@ -454,8 +461,8 @@
         
         .product-button {
             display: inline-block;
-            border: 1px solid var(--gold);
-            color: var(--gold);
+            border: 1px solid var(--terracotta);
+            color: var(--terracotta);
             padding: 0.8rem 1.5rem;
             text-decoration: none;
             font-size: 0.65rem;
@@ -466,13 +473,13 @@
         }
         
         .product-button:hover {
-            background: var(--gold);
-            color: var(--obsidian);
+            background: var(--terracotta);
+            color: var(--ivory);
         }
         
         .promo-banner {
             padding: 4rem 5rem;
-            background: linear-gradient(180deg, transparent 0%, rgba(201, 169, 98, 0.05) 50%, transparent 100%);
+            background: var(--gold-pale);
             text-align: center;
         }
         
@@ -486,6 +493,7 @@
             font-size: 2.5rem;
             font-weight: 300;
             margin-bottom: 1rem;
+            color: var(--charcoal);
         }
         
         .promo-title em {
@@ -495,29 +503,32 @@
         
         .promo-text {
             font-size: 0.9rem;
-            color: var(--silver);
+            color: var(--stone);
             margin-bottom: 2rem;
+            line-height: 1.85;
         }
         
         .promo-button {
             display: inline-block;
             background: var(--gold);
-            color: var(--obsidian);
-            padding: 1rem 2.5rem;
+            color: var(--ivory);
+            padding: 1.2rem 2.8rem;
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             transition: all 0.4s ease;
         }
         
         .promo-button:hover {
-            background: var(--champagne);
+            background: var(--gold-deep);
+            transform: translateY(-2px);
         }
         
         .disclaimer {
             padding: 3rem 5rem;
-            border-top: 1px solid rgba(201, 169, 98, 0.1);
+            border-top: 1px solid rgba(201, 169, 98, 0.15);
+            background: var(--ivory);
         }
         
         .disclaimer-content {
@@ -530,19 +541,19 @@
             font-size: 0.7rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--terracotta);
             margin-bottom: 1rem;
         }
         
         .disclaimer-text {
             font-size: 0.85rem;
-            font-weight: 200;
-            color: var(--silver);
-            line-height: 1.8;
+            font-weight: 300;
+            color: var(--stone);
+            line-height: 1.9;
         }
         
         .disclaimer-text a {
-            color: var(--gold);
+            color: var(--terracotta);
             text-decoration: none;
         }
         
@@ -555,26 +566,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid rgba(201, 169, 98, 0.1);
+            border-top: 1px solid rgba(201, 169, 98, 0.12);
+            background: var(--charcoal);
         }
         
         .footer-logo {
             font-family: 'Cormorant', serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--gold);
-            letter-spacing: 0.3em;
+            letter-spacing: 0.35em;
         }
         
         .footer-social {
             display: flex;
-            gap: 2rem;
+            gap: 2.2rem;
         }
         
         .footer-social a {
-            color: var(--silver);
+            color: rgba(250,250,247,0.4);
             text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
             transition: color 0.3s ease;
         }
         
@@ -583,20 +595,19 @@
         }
         
         .footer-copyright {
-            font-size: 0.65rem;
-            color: var(--silver);
-            letter-spacing: 0.1em;
+            font-size: 0.62rem;
+            color: rgba(250,250,247,0.3);
         }
         
         .back-to-top {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border: 1px solid var(--gold);
-            background: rgba(10, 10, 10, 0.9);
-            color: var(--gold);
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 48px;
+            height: 48px;
+            border: none;
+            background: var(--gold);
+            color: var(--charcoal);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -610,17 +621,18 @@
         .back-to-top.visible {
             opacity: 1;
             pointer-events: all;
+            box-shadow: 0 4px 20px rgba(201,169,98,0.3);
         }
         
         .back-to-top:hover {
-            background: var(--gold);
-            color: var(--obsidian);
+            background: var(--gold-deep);
+            transform: translateY(-3px);
         }
         
         .no-products {
             text-align: center;
             padding: 4rem;
-            color: var(--silver);
+            color: var(--stone);
             font-size: 1rem;
         }
         
@@ -666,6 +678,7 @@
                 padding: 2rem 3rem;
                 flex-direction: column;
                 gap: 1.5rem;
+                text-align: center;
             }
             
             nav {
@@ -744,20 +757,19 @@
     </style>
 </head>
 <body>
-    <div class="noise-overlay"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
-    
     <header id="header">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
             ANTONELA <span>BUTUC</span>
             <span class="logo-subtitle">MSc Nutritionist & Brain Health Coach</span>
         </a>
         <nav>
-            <a href="index.html">About</a>
-            <a href="index.html#services">Services</a>
-            <a href="shop.html" class="active">Shop</a>
-            <a href="index.html#testimonials">Stories</a>
-            <a href="index.html#contact">Contact</a>
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/shop.html" class="active">Shop</a>
+            <a href="/#testimonials">Stories</a>
+            <a href="/#faq">FAQ</a>
+            <a href="https://antonelabutuc.com/contact/">Contact</a>
+            <a href="/ro">Romana</a>
         </nav>
         <div class="mobile-menu-toggle" id="mobileMenuToggle">
             <span></span>
@@ -767,11 +779,13 @@
     </header>
     
     <div class="mobile-nav" id="mobileNav">
-        <a href="index.html">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="shop.html">Shop</a>
-        <a href="index.html#testimonials">Stories</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="/#about">About</a>
+        <a href="/#services">Services</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/#testimonials">Stories</a>
+        <a href="/#faq">FAQ</a>
+        <a href="https://antonelabutuc.com/contact/">Contact</a>
+        <a href="/ro">Romana</a>
     </div>
     
     <section class="hero">
@@ -1329,7 +1343,7 @@
         <div class="promo-content">
             <h2 class="promo-title">Get <em>50% Off</em> Your First Order</h2>
             <p class="promo-text">Subscribe to our newsletter and receive an exclusive discount code for your first purchase.</p>
-            <a href="index.html#contact" class="promo-button">Subscribe Now</a>
+            <a href="/#lead-magnet" class="promo-button">Subscribe Now</a>
         </div>
     </section>
     
@@ -1354,10 +1368,9 @@
     <button class="back-to-top" id="backToTop">↑</button>
     
     <script>
-        document.addEventListener('mousemove', (e) => {
-            const glow = document.getElementById('cursorGlow');
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 80);
         });
         
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
