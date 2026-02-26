@@ -43,8 +43,8 @@ export function SignupForm() {
     return (
       <div className="text-center py-8">
         <h3 className="text-gold font-serif text-2xl mb-4">Check your email</h3>
-        <p className="text-silver">
-          We've sent a confirmation link to <span className="text-cream">{email}</span>
+        <p className="text-stone">
+          We've sent a confirmation link to <span className="text-charcoal font-medium">{email}</span>
         </p>
       </div>
     );
@@ -53,7 +53,7 @@ export function SignupForm() {
   return (
     <form onSubmit={handleSignup} className="space-y-6">
       <div>
-        <label className="block text-xs tracking-widest uppercase text-silver mb-2">
+        <label className="block text-xs tracking-widest uppercase text-stone mb-2">
           Name
         </label>
         <input
@@ -67,7 +67,7 @@ export function SignupForm() {
       </div>
 
       <div>
-        <label className="block text-xs tracking-widest uppercase text-silver mb-2">
+        <label className="block text-xs tracking-widest uppercase text-stone mb-2">
           Email
         </label>
         <input
@@ -81,7 +81,7 @@ export function SignupForm() {
       </div>
 
       <div>
-        <label className="block text-xs tracking-widest uppercase text-silver mb-2">
+        <label className="block text-xs tracking-widest uppercase text-stone mb-2">
           Password
         </label>
         <input
@@ -107,9 +107,9 @@ export function SignupForm() {
         {loading ? 'Creating account...' : 'Create Account'}
       </button>
 
-      <p className="text-center text-silver text-sm">
+      <p className="text-center text-stone text-sm">
         Already have an account?{' '}
-        <Link href="/auth/login" className="text-gold hover:underline">
+        <Link href="/auth/login" className="text-terracotta hover:underline">
           Sign in
         </Link>
       </p>

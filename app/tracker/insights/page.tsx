@@ -77,18 +77,18 @@ export default function InsightsPage() {
     <div className="max-w-2xl mx-auto space-y-8">
       <div className="flex items-center gap-3">
         <Sparkles className="text-gold" size={28} />
-        <h1 className="font-serif text-3xl">Your Patterns</h1>
+        <h1 className="font-serif text-3xl text-charcoal">Your Patterns</h1>
       </div>
 
       {loading ? (
         <div className="text-center py-12">
-          <p className="text-silver">Analyzing your data...</p>
+          <p className="text-stone">Analyzing your data...</p>
         </div>
       ) : logs.length < 7 ? (
         <div className="card text-center py-12">
           <AlertCircle className="mx-auto text-gold/50 mb-4" size={48} />
-          <h2 className="font-serif text-xl mb-2">Keep Logging</h2>
-          <p className="text-silver mb-4">
+          <h2 className="font-serif text-xl text-charcoal mb-2">Keep Logging</h2>
+          <p className="text-stone mb-4">
             You have {logs.length} day{logs.length !== 1 ? 's' : ''} logged. 
             We need at least 7 days to start detecting patterns in your data.
           </p>
@@ -99,28 +99,28 @@ export default function InsightsPage() {
       ) : (
         <>
           <div className="card">
-            <h3 className="text-sm tracking-widest uppercase text-silver mb-4">
+            <h3 className="text-sm tracking-widest uppercase text-stone mb-4">
               Data Summary
             </h3>
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <p className="text-3xl font-serif text-gold">{logs.length}</p>
-                <p className="text-xs text-silver">Days logged</p>
+                <p className="text-xs text-stone">Days logged</p>
               </div>
               <div>
                 <p className="text-3xl font-serif text-gold">{insights.length}</p>
-                <p className="text-xs text-silver">Patterns found</p>
+                <p className="text-xs text-stone">Patterns found</p>
               </div>
               <div>
                 <p className="text-3xl font-serif text-gold">{freeInsights.length}</p>
-                <p className="text-xs text-silver">Free insights</p>
+                <p className="text-xs text-stone">Free insights</p>
               </div>
             </div>
           </div>
 
           {freeInsights.length > 0 && (
             <div className="space-y-4">
-              <h3 className="text-sm tracking-widest uppercase text-silver">
+              <h3 className="text-sm tracking-widest uppercase text-stone">
                 Discovered Patterns
               </h3>
               {freeInsights.map((insight) => (
@@ -128,8 +128,8 @@ export default function InsightsPage() {
                   <div className="flex items-start gap-3">
                     {getInsightIcon(insight.insight_type)}
                     <div>
-                      <h4 className="text-cream mb-1">{insight.title}</h4>
-                      <p className="text-silver text-sm">{insight.description}</p>
+                      <h4 className="text-charcoal mb-1">{insight.title}</h4>
+                      <p className="text-stone text-sm">{insight.description}</p>
                       <div className="mt-2 flex items-center gap-2">
                         <span className="text-xs text-gold/60">
                           Confidence: {Math.round(insight.confidence_score * 100)}%
@@ -144,7 +144,7 @@ export default function InsightsPage() {
 
           {premiumInsights.length > 0 && (
             <div className="space-y-4">
-              <h3 className="text-sm tracking-widest uppercase text-silver">
+              <h3 className="text-sm tracking-widest uppercase text-stone">
                 Premium Insights
               </h3>
               {premiumInsights.map((insight) => (
@@ -155,10 +155,10 @@ export default function InsightsPage() {
                   <div className="flex items-start gap-3">
                     {getInsightIcon(insight.insight_type)}
                     <div className="flex-1">
-                      <h4 className="text-cream mb-1">{insight.title}</h4>
+                      <h4 className="text-charcoal mb-1">{insight.title}</h4>
                       {isPremium ? (
                         <>
-                          <p className="text-silver text-sm">{insight.description}</p>
+                          <p className="text-stone text-sm">{insight.description}</p>
                           <div className="mt-2">
                             <span className="text-xs text-gold/60">
                               Confidence: {Math.round(insight.confidence_score * 100)}%
@@ -166,7 +166,7 @@ export default function InsightsPage() {
                           </div>
                         </>
                       ) : (
-                        <p className="text-silver text-sm">
+                        <p className="text-stone text-sm">
                           {insight.description.slice(0, 80)}...
                         </p>
                       )}
@@ -177,7 +177,7 @@ export default function InsightsPage() {
                   </div>
                   
                   {!isPremium && (
-                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent flex items-end justify-center pb-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent flex items-end justify-center pb-4">
                       <button
                         onClick={unlockPremium}
                         className="btn-primary text-xs"
@@ -192,10 +192,10 @@ export default function InsightsPage() {
           )}
 
           {!isPremium && (
-            <div className="card border-gold/30 bg-gold/5">
+            <div className="card border-gold/30 bg-gold-pale/50">
               <div className="text-center">
-                <h3 className="font-serif text-xl mb-2">Get Full Insights</h3>
-                <p className="text-silver text-sm mb-4">
+                <h3 className="font-serif text-xl text-charcoal mb-2">Get Full Insights</h3>
+                <p className="text-stone text-sm mb-4">
                   Upgrade to Premium for {premiumInsights.length} additional insights, 
                   personalized EFT recommendations, and monthly reports.
                 </p>

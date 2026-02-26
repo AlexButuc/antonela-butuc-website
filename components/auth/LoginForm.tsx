@@ -35,7 +35,7 @@ export function LoginForm() {
   return (
     <form onSubmit={handleLogin} className="space-y-6">
       <div>
-        <label className="block text-xs tracking-widest uppercase text-silver mb-2">
+        <label className="block text-xs tracking-widest uppercase text-stone mb-2">
           Email
         </label>
         <input
@@ -49,7 +49,7 @@ export function LoginForm() {
       </div>
 
       <div>
-        <label className="block text-xs tracking-widest uppercase text-silver mb-2">
+        <label className="block text-xs tracking-widest uppercase text-stone mb-2">
           Password
         </label>
         <input
@@ -74,9 +74,9 @@ export function LoginForm() {
         {loading ? 'Signing in...' : 'Sign In'}
       </button>
 
-      <p className="text-center text-silver text-sm">
+      <p className="text-center text-stone text-sm">
         Don't have an account?{' '}
-        <Link href="/auth/signup" className="text-gold hover:underline">
+        <Link href="/auth/signup" className="text-terracotta hover:underline">
           Sign up
         </Link>
       </p>

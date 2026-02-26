@@ -78,8 +78,8 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-serif text-3xl mb-1">Dashboard</h1>
-          <p className="text-silver text-sm">
+          <h1 className="font-serif text-3xl text-charcoal mb-1">Dashboard</h1>
+          <p className="text-stone text-sm">
             {format(new Date(), 'EEEE, MMMM d, yyyy')}
           </p>
         </div>
@@ -98,30 +98,30 @@ export default function DashboardPage() {
           <div>
             {todayLog ? (
               <>
-                <h3 className="text-gold text-sm tracking-widest uppercase mb-1">
+                <h3 className="text-terracotta text-sm tracking-widest uppercase mb-1">
                   Today Logged
                 </h3>
-                <p className="text-2xl font-serif">
+                <p className="text-2xl font-serif text-charcoal">
                   Energy: {todayLog.energy_level}/10
                 </p>
                 {todayLog.mood && todayLog.mood.length > 0 && (
-                  <p className="text-silver mt-1">
+                  <p className="text-stone mt-1">
                     Mood: {todayLog.mood.map(m => MOOD_OPTIONS.find(o => o.value === m)?.emoji).join(' ')}
                   </p>
                 )}
               </>
             ) : (
               <>
-                <h3 className="text-silver text-sm tracking-widest uppercase mb-1">
+                <h3 className="text-stone text-sm tracking-widest uppercase mb-1">
                   Today Not Logged
                 </h3>
-                <p className="text-xl">How are you feeling?</p>
+                <p className="text-xl text-charcoal">How are you feeling?</p>
               </>
             )}
           </div>
           <Link
             href="/tracker/log"
-            className="text-gold hover:text-champagne transition-colors"
+            className="text-gold hover:text-gold-deep transition-colors"
           >
             <ChevronRight size={24} />
           </Link>
@@ -131,26 +131,26 @@ export default function DashboardPage() {
       {/* Quick stats */}
       <div className="grid grid-cols-3 gap-4">
         <div className="card text-center">
-          <p className="text-xs text-silver tracking-widest uppercase mb-2">Avg Energy</p>
+          <p className="text-xs text-stone tracking-widest uppercase mb-2">Avg Energy</p>
           <p className="text-3xl font-serif text-gold">{avgEnergy}</p>
-          <p className="text-xs text-silver mt-1">/ 10</p>
+          <p className="text-xs text-stone mt-1">/ 10</p>
         </div>
         <div className="card text-center">
-          <p className="text-xs text-silver tracking-widest uppercase mb-2">Avg Sleep</p>
+          <p className="text-xs text-stone tracking-widest uppercase mb-2">Avg Sleep</p>
           <p className="text-3xl font-serif text-gold">{avgSleep}</p>
-          <p className="text-xs text-silver mt-1">hours</p>
+          <p className="text-xs text-stone mt-1">hours</p>
         </div>
         <div className="card text-center">
-          <p className="text-xs text-silver tracking-widest uppercase mb-2">Avg Stress</p>
+          <p className="text-xs text-stone tracking-widest uppercase mb-2">Avg Stress</p>
           <p className="text-3xl font-serif text-gold">{avgStress}</p>
-          <p className="text-xs text-silver mt-1">/ 10</p>
+          <p className="text-xs text-stone mt-1">/ 10</p>
         </div>
       </div>
 
       {/* Week view */}
       <div className="card">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm tracking-widest uppercase text-silver">This Week</h3>
+          <h3 className="text-sm tracking-widest uppercase text-stone">This Week</h3>
           <Link href="/tracker/history" className="text-gold text-sm hover:underline">
             View all
           </Link>
@@ -173,10 +173,10 @@ export default function DashboardPage() {
                     : 'border-gold/10 hover:border-gold/30'
                 }`}
               >
-                <span className="text-xs text-silver uppercase">
+                <span className="text-xs text-stone uppercase">
                   {format(day, 'EEE')}
                 </span>
-                <span className={`text-lg ${isTodayDate ? 'text-gold' : log ? 'text-cream' : 'text-silver/50'}`}>
+                <span className={`text-lg ${isTodayDate ? 'text-gold' : log ? 'text-charcoal' : 'text-feather'}`}>
                   {log?.energy_level || format(day, 'd')}
                 </span>
               </Link>
@@ -189,18 +189,18 @@ export default function DashboardPage() {
       <div className="card">
         <div className="flex items-center gap-2 mb-4">
           <Sparkles className="text-gold" size={20} />
-          <h3 className="text-sm tracking-widest uppercase text-silver">Your Patterns</h3>
+          <h3 className="text-sm tracking-widest uppercase text-stone">Your Patterns</h3>
         </div>
 
         {loading ? (
-          <p className="text-silver text-center py-8">Analyzing your data...</p>
+          <p className="text-stone text-center py-8">Analyzing your data...</p>
         ) : insights.length === 0 ? (
           <div className="text-center py-8">
             <TrendingUp className="mx-auto text-gold/50 mb-3" size={32} />
-            <p className="text-silver">
+            <p className="text-stone">
               Log at least 7 days to start seeing patterns
             </p>
-            <p className="text-silver/60 text-sm mt-1">
+            <p className="text-feather text-sm mt-1">
               You have {logs.length} day{logs.length !== 1 ? 's' : ''} logged
             </p>
           </div>
@@ -213,11 +213,11 @@ export default function DashboardPage() {
               >
                 <div className="flex items-start justify-between">
                   <div>
-                    <h4 className="text-cream mb-1">{insight.title}</h4>
-                    <p className="text-silver text-sm">{insight.description}</p>
+                    <h4 className="text-charcoal mb-1">{insight.title}</h4>
+                    <p className="text-stone text-sm">{insight.description}</p>
                   </div>
                   {insight.is_premium && (
-                    <span className="text-xs text-gold border border-gold/30 px-2 py-1 rounded">
+                    <span className="text-xs text-terracotta border border-terracotta/30 px-2 py-1 rounded">
                       Premium
                     </span>
                   )}
@@ -240,7 +240,7 @@ export default function DashboardPage() {
       {/* Recent entries */}
       <div className="card">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm tracking-widest uppercase text-silver">Recent Entries</h3>
+          <h3 className="text-sm tracking-widest uppercase text-stone">Recent Entries</h3>
           <Link href="/tracker/history" className="text-gold text-sm hover:underline">
             View all
           </Link>
@@ -249,7 +249,7 @@ export default function DashboardPage() {
         {logs.length === 0 ? (
           <div className="text-center py-8">
             <Calendar className="mx-auto text-gold/50 mb-3" size={32} />
-            <p className="text-silver">No entries yet</p>
+            <p className="text-stone">No entries yet</p>
             <Link href="/tracker/log" className="text-gold hover:underline">
               Log your first day
             </Link>
@@ -263,14 +263,14 @@ export default function DashboardPage() {
                 className="flex items-center justify-between p-3 border border-gold/10 rounded-lg hover:border-gold/30 transition-colors"
               >
                 <div>
-                  <p className="text-sm text-cream">
+                  <p className="text-sm text-charcoal">
                     {format(new Date(log.log_date), 'EEEE, MMM d')}
                   </p>
-                  <p className="text-xs text-silver">
+                  <p className="text-xs text-stone">
                     Energy: {log.energy_level || '—'} • Sleep: {log.sleep_hours || '—'}h
                   </p>
                 </div>
-                <ChevronRight size={18} className="text-silver" />
+                <ChevronRight size={18} className="text-stone" />
               </Link>
             ))}
           </div>

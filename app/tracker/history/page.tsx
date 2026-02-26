@@ -31,10 +31,10 @@ export default function HistoryPage() {
 
   const getEnergyColor = (level: number | null) => {
     if (!level) return 'bg-gold/10';
-    if (level >= 8) return 'bg-green-500/30';
-    if (level >= 6) return 'bg-gold/30';
-    if (level >= 4) return 'bg-orange-500/30';
-    return 'bg-red-500/30';
+    if (level >= 8) return 'bg-green-500/20';
+    if (level >= 6) return 'bg-gold/20';
+    if (level >= 4) return 'bg-orange-500/20';
+    return 'bg-red-500/20';
   };
 
   const monthLogs = logs.filter(log => {
@@ -44,24 +44,24 @@ export default function HistoryPage() {
 
   return (
     <div className="max-w-3xl mx-auto space-y-8">
-      <h1 className="font-serif text-3xl">History</h1>
+      <h1 className="font-serif text-3xl text-charcoal">History</h1>
 
       {/* Month navigation */}
       <div className="flex items-center justify-between">
         <button
           onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
-          className="p-2 text-silver hover:text-gold transition-colors"
+          className="p-2 text-stone hover:text-gold transition-colors"
         >
           <ChevronLeft size={24} />
         </button>
         
-        <h2 className="font-serif text-xl">
+        <h2 className="font-serif text-xl text-charcoal">
           {format(currentMonth, 'MMMM yyyy')}
         </h2>
         
         <button
           onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
-          className="p-2 text-silver hover:text-gold transition-colors"
+          className="p-2 text-stone hover:text-gold transition-colors"
         >
           <ChevronRight size={24} />
         </button>
@@ -72,7 +72,7 @@ export default function HistoryPage() {
         {/* Day headers */}
         <div className="grid grid-cols-7 gap-1 mb-2">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-            <div key={day} className="text-center text-xs text-silver py-2">
+            <div key={day} className="text-center text-xs text-stone py-2">
               {day}
             </div>
           ))}
@@ -100,11 +100,11 @@ export default function HistoryPage() {
                     : 'border-gold/10 hover:border-gold/30'
                 } ${log ? getEnergyColor(log.energy_level) : ''}`}
               >
-                <span className="text-xs text-silver">
+                <span className="text-xs text-stone">
                   {format(day, 'd')}
                 </span>
                 {log && (
-                  <span className="text-sm font-serif text-cream">
+                  <span className="text-sm font-serif text-charcoal">
                     {log.energy_level}
                   </span>
                 )}
@@ -115,21 +115,21 @@ export default function HistoryPage() {
       </div>
 
       {/* Legend */}
-      <div className="flex items-center justify-center gap-4 text-xs text-silver">
+      <div className="flex items-center justify-center gap-4 text-xs text-stone">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-green-500/30" />
+          <div className="w-3 h-3 rounded bg-green-500/20" />
           <span>High energy (8+)</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-gold/30" />
+          <div className="w-3 h-3 rounded bg-gold/20" />
           <span>Good (6-7)</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-orange-500/30" />
+          <div className="w-3 h-3 rounded bg-orange-500/20" />
           <span>Low (4-5)</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-red-500/30" />
+          <div className="w-3 h-3 rounded bg-red-500/20" />
           <span>Very low (&lt;4)</span>
         </div>
       </div>
@@ -137,7 +137,7 @@ export default function HistoryPage() {
       {/* Entries list */}
       {monthLogs.length > 0 && (
         <div className="card">
-          <h3 className="text-sm tracking-widest uppercase text-silver mb-4">
+          <h3 className="text-sm tracking-widest uppercase text-stone mb-4">
             All Entries This Month
           </h3>
           <div className="space-y-2">
@@ -148,10 +148,10 @@ export default function HistoryPage() {
                 className="flex items-center justify-between p-3 border border-gold/10 rounded-lg hover:border-gold/30 transition-colors"
               >
                 <div>
-                  <p className="text-cream">
+                  <p className="text-charcoal">
                     {format(parseISO(log.log_date), 'EEEE, MMMM d')}
                   </p>
-                  <div className="flex items-center gap-3 text-sm text-silver mt-1">
+                  <div className="flex items-center gap-3 text-sm text-stone mt-1">
                     <span>Energy: {log.energy_level}/10</span>
                     <span>Sleep: {log.sleep_hours}h</span>
                     <span>Stress: {log.stress_level}/10</span>
@@ -164,7 +164,7 @@ export default function HistoryPage() {
                     </p>
                   )}
                   {log.physical_symptoms && log.physical_symptoms.length > 0 && (
-                    <p className="text-xs text-silver mt-1">
+                    <p className="text-xs text-stone mt-1">
                       {log.physical_symptoms.length} symptom{log.physical_symptoms.length !== 1 ? 's' : ''}
                     </p>
                   )}
@@ -177,7 +177,7 @@ export default function HistoryPage() {
 
       {monthLogs.length === 0 && !loading && (
         <div className="text-center py-12">
-          <p className="text-silver">No entries for this month</p>
+          <p className="text-stone">No entries for this month</p>
           <Link href="/tracker/log" className="text-gold hover:underline mt-2 inline-block">
             Start logging
           </Link>

@@ -8,10 +8,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Legacy dark theme (kept for tracker pages)
-        obsidian: '#0A0A0A',
-        cream: '#FFFEF9',
-
         // Bold warm palette
         ivory: '#FAFAF7',
         blush: '#F4EBE3',
@@ -24,8 +20,6 @@ module.exports = {
         charcoal: '#1C1A17',
         stone: '#6B6058',
         feather: '#B5AAA2',
-        champagne: '#F5EFE7',
-        silver: '#A8A8A8',
         error: '#c0392b'
       },
       fontFamily: {

@@ -146,21 +146,21 @@ export default function LogPage() {
       <div className="flex items-center justify-between">
         <button
           onClick={() => navigateDate('prev')}
-          className="p-2 text-silver hover:text-gold transition-colors"
+          className="p-2 text-stone hover:text-gold transition-colors"
         >
           <ChevronLeft size={24} />
         </button>
         
         <div className="text-center">
-          <h1 className="font-serif text-2xl">{formatDateDisplay(currentDate)}</h1>
-          <p className="text-silver text-sm">
+          <h1 className="font-serif text-2xl text-charcoal">{formatDateDisplay(currentDate)}</h1>
+          <p className="text-stone text-sm">
             {format(parseISO(currentDate), 'MMMM yyyy')}
           </p>
         </div>
         
         <button
           onClick={() => navigateDate('next')}
-          className="p-2 text-silver hover:text-gold transition-colors"
+          className="p-2 text-stone hover:text-gold transition-colors"
           disabled={currentDate === format(new Date(), 'yyyy-MM-dd')}
         >
           <ChevronRight size={24} className={currentDate === format(new Date(), 'yyyy-MM-dd') ? 'opacity-30' : ''} />
@@ -169,17 +169,17 @@ export default function LogPage() {
 
       {loading ? (
         <div className="text-center py-12">
-          <p className="text-silver">Loading...</p>
+          <p className="text-stone">Loading...</p>
         </div>
       ) : (
         <div className="space-y-8">
           {/* Energy Level */}
           <div className="card">
-            <label className="block text-sm tracking-widest uppercase text-silver mb-4">
+            <label className="block text-sm tracking-widest uppercase text-stone mb-4">
               Energy Level
             </label>
             <div className="flex items-center gap-4">
-              <span className="text-silver text-sm">Low</span>
+              <span className="text-stone text-sm">Low</span>
               <input
                 type="range"
                 min="1"
@@ -189,20 +189,20 @@ export default function LogPage() {
                 style={{ '--value': `${(energyLevel - 1) * 11.11}%` } as React.CSSProperties}
                 className="flex-1"
               />
-              <span className="text-silver text-sm">High</span>
+              <span className="text-stone text-sm">High</span>
             </div>
             <p className="text-center text-3xl font-serif text-gold mt-4">
-              {energyLevel}<span className="text-silver text-lg">/10</span>
+              {energyLevel}<span className="text-stone text-lg">/10</span>
             </p>
           </div>
 
           {/* Sleep Quality */}
           <div className="card">
-            <label className="block text-sm tracking-widest uppercase text-silver mb-4">
+            <label className="block text-sm tracking-widest uppercase text-stone mb-4">
               Sleep Quality
             </label>
             <div className="flex items-center gap-4">
-              <span className="text-silver text-sm">Poor</span>
+              <span className="text-stone text-sm">Poor</span>
               <input
                 type="range"
                 min="1"
@@ -212,14 +212,14 @@ export default function LogPage() {
                 style={{ '--value': `${(sleepQuality - 1) * 11.11}%` } as React.CSSProperties}
                 className="flex-1"
               />
-              <span className="text-silver text-sm">Great</span>
+              <span className="text-stone text-sm">Great</span>
             </div>
             <p className="text-center text-3xl font-serif text-gold mt-4">
-              {sleepQuality}<span className="text-silver text-lg">/10</span>
+              {sleepQuality}<span className="text-stone text-lg">/10</span>
             </p>
             
             <div className="mt-4 pt-4 border-t border-gold/10">
-              <label className="block text-xs tracking-widest uppercase text-silver mb-2">
+              <label className="block text-xs tracking-widest uppercase text-stone mb-2">
                 Hours slept
               </label>
               <div className="flex items-center gap-4">
@@ -242,11 +242,11 @@ export default function LogPage() {
 
           {/* Stress Level */}
           <div className="card">
-            <label className="block text-sm tracking-widest uppercase text-silver mb-4">
+            <label className="block text-sm tracking-widest uppercase text-stone mb-4">
               Stress Level
             </label>
             <div className="flex items-center gap-4">
-              <span className="text-silver text-sm">Calm</span>
+              <span className="text-stone text-sm">Calm</span>
               <input
                 type="range"
                 min="1"
@@ -256,16 +256,16 @@ export default function LogPage() {
                 style={{ '--value': `${(stressLevel - 1) * 11.11}%` } as React.CSSProperties}
                 className="flex-1"
               />
-              <span className="text-silver text-sm">High</span>
+              <span className="text-stone text-sm">High</span>
             </div>
             <p className="text-center text-3xl font-serif text-gold mt-4">
-              {stressLevel}<span className="text-silver text-lg">/10</span>
+              {stressLevel}<span className="text-stone text-lg">/10</span>
             </p>
           </div>
 
           {/* Mood */}
           <div className="card">
-            <label className="block text-sm tracking-widest uppercase text-silver mb-4">
+            <label className="block text-sm tracking-widest uppercase text-stone mb-4">
               Mood (select all that apply)
             </label>
             <div className="flex flex-wrap gap-2">
@@ -284,7 +284,7 @@ export default function LogPage() {
 
           {/* Physical Symptoms */}
           <div className="card">
-            <label className="block text-sm tracking-widest uppercase text-silver mb-4">
+            <label className="block text-sm tracking-widest uppercase text-stone mb-4">
               Physical Symptoms
             </label>
             <div className="flex flex-wrap gap-2">
@@ -303,7 +303,7 @@ export default function LogPage() {
 
           {/* Cravings */}
           <div className="card">
-            <label className="block text-sm tracking-widest uppercase text-silver mb-4">
+            <label className="block text-sm tracking-widest uppercase text-stone mb-4">
               Cravings
             </label>
             <div className="flex flex-wrap gap-2">
@@ -329,7 +329,7 @@ export default function LogPage() {
 
           {/* Cycle Phase */}
           <div className="card">
-            <label className="block text-sm tracking-widest uppercase text-silver mb-4">
+            <label className="block text-sm tracking-widest uppercase text-stone mb-4">
               Cycle Phase (optional)
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -344,8 +344,8 @@ export default function LogPage() {
                       : 'border-gold/20 hover:border-gold/40'
                   }`}
                 >
-                  <p className="text-cream text-sm">{option.label}</p>
-                  <p className="text-silver text-xs">{option.description}</p>
+                  <p className="text-charcoal text-sm">{option.label}</p>
+                  <p className="text-stone text-xs">{option.description}</p>
                 </button>
               ))}
             </div>
@@ -353,7 +353,7 @@ export default function LogPage() {
 
           {/* Notes */}
           <div className="card">
-            <label className="block text-sm tracking-widest uppercase text-silver mb-4">
+            <label className="block text-sm tracking-widest uppercase text-stone mb-4">
               Notes (optional)
             </label>
             <textarea
@@ -361,7 +361,7 @@ export default function LogPage() {
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Any additional observations..."
               rows={3}
-              className="w-full bg-transparent border border-gold/20 rounded-lg p-3 text-cream placeholder:text-silver/40 focus:border-gold focus:outline-none transition-colors resize-none"
+              className="w-full bg-ivory border border-gold/20 rounded-lg p-3 text-charcoal placeholder:text-stone/40 focus:border-gold focus:outline-none transition-colors resize-none"
             />
           </div>
 

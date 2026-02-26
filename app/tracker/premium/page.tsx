@@ -32,7 +32,7 @@ export default function PremiumPage() {
   if (loading) {
     return (
       <div className="max-w-2xl mx-auto text-center py-12">
-        <p className="text-silver">Loading...</p>
+        <p className="text-stone">Loading...</p>
       </div>
     );
   }
@@ -42,18 +42,18 @@ export default function PremiumPage() {
       <div className="max-w-2xl mx-auto space-y-8">
         <div className="text-center">
           <Crown className="mx-auto text-gold mb-4" size={48} />
-          <h1 className="font-serif text-3xl mb-2">You're Premium</h1>
-          <p className="text-silver">Thank you for your support!</p>
+          <h1 className="font-serif text-3xl text-charcoal mb-2">You're Premium</h1>
+          <p className="text-stone">Thank you for your support!</p>
         </div>
 
-        <div className="card bg-gold/5 border-gold/30">
-          <p className="text-gold text-sm text-center">
+        <div className="card bg-gold-pale/50 border-gold/30">
+          <p className="text-terracotta text-sm text-center">
             Demo Mode — Premium features are now unlocked for this session.
           </p>
         </div>
 
         <div className="card">
-          <h3 className="text-sm tracking-widest uppercase text-silver mb-4">
+          <h3 className="text-sm tracking-widest uppercase text-stone mb-4">
             Your Premium Benefits
           </h3>
           <div className="space-y-4">
@@ -65,8 +65,8 @@ export default function PremiumPage() {
               <div key={i} className="flex items-start gap-3">
                 <benefit.icon className="text-gold mt-1" size={20} />
                 <div className="flex-1">
-                  <h4 className="text-cream">{benefit.title}</h4>
-                  <p className="text-silver text-sm">{benefit.desc}</p>
+                  <h4 className="text-charcoal">{benefit.title}</h4>
+                  <p className="text-stone text-sm">{benefit.desc}</p>
                 </div>
                 <Check className="text-gold" size={20} />
               </div>
@@ -87,13 +87,13 @@ export default function PremiumPage() {
     <div className="max-w-2xl mx-auto space-y-8">
       <div className="text-center">
         <Crown className="mx-auto text-gold mb-4" size={48} />
-        <h1 className="font-serif text-3xl mb-2">Go Premium</h1>
-        <p className="text-silver">Unlock the full power of pattern tracking</p>
+        <h1 className="font-serif text-3xl text-charcoal mb-2">Go Premium</h1>
+        <p className="text-stone">Unlock the full power of pattern tracking</p>
       </div>
 
       {/* Demo mode notice */}
-      <div className="card bg-gold/5 border-gold/30">
-        <p className="text-gold text-sm text-center">
+      <div className="card bg-gold-pale/50 border-gold/30">
+        <p className="text-terracotta text-sm text-center">
           Demo Mode — Click any plan to instantly unlock all premium features.
         </p>
       </div>
@@ -101,25 +101,25 @@ export default function PremiumPage() {
       {/* Pricing cards */}
       <div className="grid md:grid-cols-2 gap-4">
         <div className="card border-gold/30 hover:border-gold/50 transition-colors cursor-pointer" onClick={() => handleSubscribe('monthly')}>
-          <h3 className="font-serif text-xl mb-2">Monthly</h3>
+          <h3 className="font-serif text-xl text-charcoal mb-2">Monthly</h3>
           <p className="text-4xl font-serif text-gold mb-1">
-            €9<span className="text-base text-silver">/month</span>
+            €9<span className="text-base text-stone">/month</span>
           </p>
-          <p className="text-silver text-sm mb-4">Cancel anytime</p>
+          <p className="text-stone text-sm mb-4">Cancel anytime</p>
           <button className="btn-outline w-full">
             Start Monthly (Demo)
           </button>
         </div>
 
-        <div className="card border-gold bg-gold/5 relative cursor-pointer" onClick={() => handleSubscribe('annual')}>
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-obsidian text-xs px-3 py-1 rounded-full">
+        <div className="card border-gold bg-gold-pale/30 relative cursor-pointer" onClick={() => handleSubscribe('annual')}>
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-ivory text-xs px-3 py-1 rounded-full">
             Best Value
           </div>
-          <h3 className="font-serif text-xl mb-2">Annual</h3>
+          <h3 className="font-serif text-xl text-charcoal mb-2">Annual</h3>
           <p className="text-4xl font-serif text-gold mb-1">
-            €89<span className="text-base text-silver">/year</span>
+            €89<span className="text-base text-stone">/year</span>
           </p>
-          <p className="text-silver text-sm mb-4">2 months free</p>
+          <p className="text-stone text-sm mb-4">2 months free</p>
           <button className="btn-primary w-full">
             Start Annual (Demo)
           </button>
@@ -128,7 +128,7 @@ export default function PremiumPage() {
 
       {/* Features */}
       <div className="card">
-        <h3 className="text-sm tracking-widest uppercase text-silver mb-6">
+        <h3 className="text-sm tracking-widest uppercase text-stone mb-6">
           What's Included
         </h3>
         <div className="space-y-4">
@@ -147,8 +147,8 @@ export default function PremiumPage() {
                 <Check className="text-gold mt-1 shrink-0" size={20} />
               )}
               <div>
-                <h4 className="text-cream">{feature.title}</h4>
-                <p className="text-silver text-sm">{feature.desc}</p>
+                <h4 className="text-charcoal">{feature.title}</h4>
+                <p className="text-stone text-sm">{feature.desc}</p>
               </div>
             </div>
           ))}
@@ -157,15 +157,15 @@ export default function PremiumPage() {
 
       {/* Free vs Premium comparison */}
       <div className="card">
-        <h3 className="text-sm tracking-widest uppercase text-silver mb-4">
+        <h3 className="text-sm tracking-widest uppercase text-stone mb-4">
           Free vs Premium
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gold/20">
-                <th className="text-left py-2">Feature</th>
-                <th className="text-center py-2 text-silver">Free</th>
+                <th className="text-left py-2 text-charcoal">Feature</th>
+                <th className="text-center py-2 text-stone">Free</th>
                 <th className="text-center py-2 text-gold">Premium</th>
               </tr>
             </thead>
@@ -181,12 +181,12 @@ export default function PremiumPage() {
                 ['Wellness Club integration', false, true]
               ].map(([feature, free, premium], i) => (
                 <tr key={i} className="border-b border-gold/10">
-                  <td className="py-2">{feature}</td>
+                  <td className="py-2 text-charcoal">{feature}</td>
                   <td className="text-center py-2">
-                    {free ? <Check className="mx-auto text-silver" size={16} /> : '—'}
+                    {free ? <Check className="mx-auto text-stone" size={16} /> : <span className="text-feather">—</span>}
                   </td>
                   <td className="text-center py-2">
-                    {premium ? <Check className="mx-auto text-gold" size={16} /> : '—'}
+                    {premium ? <Check className="mx-auto text-gold" size={16} /> : <span className="text-feather">—</span>}
                   </td>
                 </tr>
               ))}
@@ -196,8 +196,8 @@ export default function PremiumPage() {
       </div>
 
       {/* Testimonial */}
-      <div className="card bg-gold/5 border-gold/30">
-        <p className="font-serif text-lg italic mb-3">
+      <div className="card bg-blush border-gold/20">
+        <p className="font-serif text-lg italic text-charcoal mb-3">
           "The patterns this revealed were eye-opening. I had no idea my energy crashes 
           were so closely tied to my sleep quality. Now I know exactly what to prioritize."
         </p>

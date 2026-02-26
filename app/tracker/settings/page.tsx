@@ -128,18 +128,18 @@ export default function SettingsPage() {
   if (loading) {
     return (
       <div className="max-w-2xl mx-auto text-center py-12">
-        <p className="text-silver">Loading...</p>
+        <p className="text-stone">Loading...</p>
       </div>
     );
   }
 
   return (
     <div className="max-w-2xl mx-auto space-y-8">
-      <h1 className="font-serif text-3xl">Settings</h1>
+      <h1 className="font-serif text-3xl text-charcoal">Settings</h1>
 
       {/* Demo mode notice */}
-      <div className="card bg-gold/5 border-gold/30">
-        <p className="text-gold text-sm">
+      <div className="card bg-gold-pale/50 border-gold/30">
+        <p className="text-terracotta text-sm">
           Demo Mode — Your data is stored locally in your browser. 
           No account or backend required.
         </p>
@@ -147,15 +147,15 @@ export default function SettingsPage() {
 
       {/* Account info */}
       <div className="card">
-        <h3 className="text-sm tracking-widest uppercase text-silver mb-4">
+        <h3 className="text-sm tracking-widest uppercase text-stone mb-4">
           Account
         </h3>
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <Mail className="text-gold" size={20} />
             <div>
-              <p className="text-xs text-silver">Email</p>
-              <p className="text-cream">{user?.email}</p>
+              <p className="text-xs text-stone">Email</p>
+              <p className="text-charcoal">{user?.email}</p>
             </div>
           </div>
         </div>
@@ -163,12 +163,12 @@ export default function SettingsPage() {
 
       {/* Profile settings */}
       <div className="card">
-        <h3 className="text-sm tracking-widest uppercase text-silver mb-4">
+        <h3 className="text-sm tracking-widest uppercase text-stone mb-4">
           Profile
         </h3>
         <div className="space-y-4">
           <div>
-            <label className="block text-xs text-silver mb-2">Display Name</label>
+            <label className="block text-xs text-stone mb-2">Display Name</label>
             <input
               type="text"
               value={displayName}
@@ -179,7 +179,7 @@ export default function SettingsPage() {
           </div>
 
           <div>
-            <label className="block text-xs text-silver mb-2">
+            <label className="block text-xs text-stone mb-2">
               Average Cycle Length (days)
             </label>
             <input
@@ -190,7 +190,7 @@ export default function SettingsPage() {
               max="35"
               className="input-field"
             />
-            <p className="text-xs text-silver/60 mt-1">
+            <p className="text-xs text-feather mt-1">
               Used to estimate cycle phases (21-35 days)
             </p>
           </div>
@@ -211,8 +211,8 @@ export default function SettingsPage() {
           <div className="flex items-center gap-3">
             <Crown className="text-gold" size={20} />
             <div>
-              <p className="text-cream">Subscription</p>
-              <p className="text-silver text-sm">
+              <p className="text-charcoal">Subscription</p>
+              <p className="text-stone text-sm">
                 {isPremium ? 'Premium' : 'Free plan'}
               </p>
             </div>
@@ -234,10 +234,10 @@ export default function SettingsPage() {
 
       {/* Data export */}
       <div className="card">
-        <h3 className="text-sm tracking-widest uppercase text-silver mb-4">
+        <h3 className="text-sm tracking-widest uppercase text-stone mb-4">
           Your Data
         </h3>
-        <p className="text-silver text-sm mb-4">
+        <p className="text-stone text-sm mb-4">
           Export all your logged data as a CSV file, or clear all data from this browser.
         </p>
         <div className="flex gap-3">
@@ -249,7 +249,7 @@ export default function SettingsPage() {
           </button>
           <button 
             onClick={handleClearData}
-            className="btn-outline text-xs border-error/30 text-error hover:bg-error/10"
+            className="btn-outline text-xs border-error/30 text-error hover:bg-error/10 hover:text-error"
           >
             <Trash2 size={14} className="mr-1" />
             Clear Data
@@ -260,7 +260,7 @@ export default function SettingsPage() {
       {/* Logout */}
       <button
         onClick={handleLogout}
-        className="flex items-center gap-3 w-full p-4 border border-gold/10 rounded-lg text-silver hover:text-cream hover:border-gold/30 transition-colors"
+        className="flex items-center gap-3 w-full p-4 border border-gold/10 rounded-lg text-stone hover:text-charcoal hover:border-gold/30 transition-colors"
       >
         <LogOut size={20} />
         <span>Clear All & Exit Demo</span>

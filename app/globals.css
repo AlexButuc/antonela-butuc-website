@@ -15,13 +15,7 @@
   --charcoal:    #1C1A17;
   --stone:       #6B6058;
   --feather:     #B5AAA2;
-
-  /* Legacy (kept for tracker) */
-  --obsidian: #0A0A0A;
-  --champagne: #F5EFE7;
-  --silver: #A8A8A8;
-  --cream: #FFFEF9;
-  --error: #c0392b;
+  --error:       #c0392b;
 }
 
 * {
@@ -52,20 +46,8 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Legacy noise overlay for tracker pages */
-.noise-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0.04;
-  z-index: 1000;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
 @layer components {
+  /* ── Homepage bold buttons ── */
   .btn-primary-bold {
     @apply inline-flex items-center gap-4 bg-gold text-ivory px-10 py-5 text-xs tracking-wide uppercase font-normal transition-all duration-[400ms];
   }
@@ -80,21 +62,23 @@ body::after {
     @apply bg-terracotta text-ivory;
   }
 
-  /* Legacy btn styles for tracker */
+  /* ── App-wide button styles ── */
   .btn-primary {
-    @apply bg-gold text-obsidian px-8 py-4 text-xs tracking-widest uppercase transition-all duration-500 hover:bg-champagne;
+    @apply bg-gold text-ivory px-8 py-4 text-xs tracking-widest uppercase transition-all duration-500 hover:bg-gold-deep;
   }
 
   .btn-outline {
-    @apply border border-gold text-gold px-8 py-4 text-xs tracking-widest uppercase transition-all duration-500 hover:bg-gold hover:text-obsidian;
+    @apply border border-terracotta text-terracotta px-8 py-4 text-xs tracking-widest uppercase transition-all duration-500 hover:bg-terracotta hover:text-ivory;
   }
 
+  /* ── Input fields ── */
   .input-field {
-    @apply w-full bg-transparent border-b border-gold/30 py-3 text-cream outline-none transition-colors focus:border-gold;
+    @apply w-full bg-white border-b border-gold/30 py-3 text-charcoal outline-none transition-colors focus:border-gold placeholder:text-stone/40;
   }
 
+  /* ── Card component ── */
   .card {
-    @apply border border-gold/15 p-8 transition-all duration-500 bg-obsidian/50;
+    @apply border border-gold/15 p-8 transition-all duration-500 bg-white;
   }
 
   .card:hover {
@@ -104,11 +88,11 @@ body::after {
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-gold via-champagne to-gold bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-gold via-gold-deep to-gold bg-clip-text text-transparent;
   }
 }
 
-/* Range inputs (tracker) */
+/* ── Range inputs ── */
 input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
@@ -126,6 +110,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.2s;
+  box-shadow: 0 2px 8px rgba(201, 169, 98, 0.3);
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
@@ -141,30 +126,32 @@ input[type="range"]::-moz-range-thumb {
   border: none;
 }
 
+/* ── Symptom tags & mood buttons ── */
 .symptom-tag {
-  @apply px-3 py-1.5 text-xs tracking-wide border border-gold/30 rounded-full cursor-pointer transition-all duration-300;
+  @apply px-3 py-1.5 text-xs tracking-wide border border-gold/30 rounded-full cursor-pointer transition-all duration-300 text-stone;
 }
 
 .symptom-tag:hover {
-  @apply border-gold bg-gold/10;
+  @apply border-gold bg-gold/10 text-charcoal;
 }
 
 .symptom-tag.selected {
-  @apply bg-gold text-obsidian border-gold;
+  @apply bg-gold text-ivory border-gold;
 }
 
 .mood-btn {
-  @apply px-4 py-2 text-sm border border-gold/30 rounded-full cursor-pointer transition-all duration-300;
+  @apply px-4 py-2 text-sm border border-gold/30 rounded-full cursor-pointer transition-all duration-300 text-stone;
 }
 
 .mood-btn:hover {
-  @apply border-gold bg-gold/10;
+  @apply border-gold bg-gold/10 text-charcoal;
 }
 
 .mood-btn.selected {
-  @apply bg-gold text-obsidian border-gold;
+  @apply bg-gold text-ivory border-gold;
 }
 
+/* ── Animations ── */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -209,7 +196,7 @@ input[type="range"]::-moz-range-thumb {
   animation: pulse 3s ease-in-out infinite;
 }
 
-/* FAQ accordion */
+/* ── FAQ accordion ── */
 .faq-item.active .faq-answer {
   max-height: 500px;
 }
