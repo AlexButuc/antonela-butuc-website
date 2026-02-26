@@ -155,17 +155,14 @@ export default function HomeClientRo() {
             English
           </Link>
 
-          <div className="w-px h-5 bg-gold/25 ml-2" />
           <Link
             href="/tracker"
-            className="group relative flex items-center gap-3 bg-terracotta text-ivory no-underline px-6 py-2.5 text-[0.62rem] font-normal tracking-[0.22em] uppercase transition-all duration-[400ms] hover:bg-charcoal hover:shadow-[0_4px_20px_rgba(184,100,74,0.25)]"
+            className="relative flex items-center gap-2 no-underline ml-4 px-5 py-2 bg-charcoal text-gold text-[0.62rem] font-normal tracking-[0.22em] uppercase transition-all duration-300 hover:bg-gold hover:text-charcoal shadow-[0_2px_12px_rgba(28,26,23,0.15)] hover:shadow-[0_4px_20px_rgba(201,169,98,0.3)]"
           >
-            <span className="relative z-[1] flex items-center gap-2.5">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-70">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-              </svg>
-              Pattern Tracker
-            </span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+            Tracker
           </Link>
         </nav>
 
@@ -204,13 +201,13 @@ export default function HomeClientRo() {
           English
         </Link>
         {/* Tracker CTA */}
-        <div className="mt-4 pt-8 border-t border-gold/20 flex flex-col items-center gap-3">
+        <div className="mt-6 pt-8 border-t border-gold/20 flex flex-col items-center gap-4">
           <Link
             href="/tracker"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-3 bg-terracotta text-ivory no-underline px-10 py-4 text-[0.68rem] font-normal tracking-[0.25em] uppercase transition-all duration-300 hover:bg-charcoal"
+            className="flex items-center gap-3 bg-charcoal text-gold no-underline px-10 py-4 text-[0.72rem] font-normal tracking-[0.25em] uppercase transition-all duration-300 hover:bg-gold hover:text-charcoal"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
             </svg>
             Pattern Tracker
