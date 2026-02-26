@@ -3,12 +3,25 @@
 @tailwind utilities;
 
 :root {
+  /* Bold warm palette */
+  --ivory:       #FAFAF7;
+  --blush:       #F4EBE3;
+  --sand:        #E8D5C4;
+  --terracotta:  #B8644A;
+  --terra-light: #F0DED6;
+  --gold:        #C9A962;
+  --gold-deep:   #A8893E;
+  --gold-pale:   #F5EBD6;
+  --charcoal:    #1C1A17;
+  --stone:       #6B6058;
+  --feather:     #B5AAA2;
+
+  /* Legacy (kept for tracker) */
   --obsidian: #0A0A0A;
-  --gold: #C9A962;
   --champagne: #F5EFE7;
   --silver: #A8A8A8;
   --cream: #FFFEF9;
-  --error: #e74c3c;
+  --error: #c0392b;
 }
 
 * {
@@ -23,11 +36,23 @@ html {
 
 body {
   font-family: 'Outfit', system-ui, sans-serif;
-  background: var(--obsidian);
-  color: var(--cream);
+  background: var(--ivory);
+  color: var(--charcoal);
   overflow-x: hidden;
 }
 
+/* Grain texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Legacy noise overlay for tracker pages */
 .noise-overlay {
   position: fixed;
   top: 0;
@@ -41,6 +66,21 @@ body {
 }
 
 @layer components {
+  .btn-primary-bold {
+    @apply inline-flex items-center gap-4 bg-gold text-ivory px-10 py-5 text-xs tracking-wide uppercase font-normal transition-all duration-[400ms];
+  }
+  .btn-primary-bold:hover {
+    @apply bg-gold-deep -translate-y-0.5;
+  }
+
+  .btn-outline-bold {
+    @apply inline-flex items-center border border-terracotta text-terracotta px-10 py-5 text-xs tracking-wide uppercase transition-all duration-[400ms];
+  }
+  .btn-outline-bold:hover {
+    @apply bg-terracotta text-ivory;
+  }
+
+  /* Legacy btn styles for tracker */
   .btn-primary {
     @apply bg-gold text-obsidian px-8 py-4 text-xs tracking-widest uppercase transition-all duration-500 hover:bg-champagne;
   }
@@ -68,6 +108,7 @@ body {
   }
 }
 
+/* Range inputs (tracker) */
 input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
@@ -133,6 +174,32 @@ input[type="range"]::-moz-range-thumb {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(35px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 1.1s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.animate-slide-up-delay-1 {
+  animation: slideUp 1.1s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+
+.animate-slide-up-delay-2 {
+  animation: slideUp 1.1s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.8; }
+  50%       { opacity: 0.2; }
+}
+
+.animate-scroll-pulse {
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -140,4 +207,17 @@ input[type="range"]::-moz-range-thumb {
 
 .animate-pulse-slow {
   animation: pulse 3s ease-in-out infinite;
+}
+
+/* FAQ accordion */
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.faq-item.active .faq-question .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-item.active .faq-question h3 {
+  color: var(--terracotta);
 }

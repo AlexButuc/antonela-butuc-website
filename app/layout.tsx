@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0A0A0A',
+  themeColor: '#FAFAF7',
   width: 'device-width',
   initialScale: 1
 };
@@ -43,8 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${outfit.variable}`}>
-      <body className="font-sans bg-obsidian text-cream">
-        <div className="noise-overlay" />
+      <body className="font-sans bg-ivory text-charcoal">
         <Providers>{children}</Providers>
       </body>
     </html>
