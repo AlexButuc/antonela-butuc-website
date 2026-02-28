@@ -21,26 +21,12 @@ export async function POST(request: Request) {
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: 'alexbutuc@proton.me',
-      subject: `New Contact Form Submission from ${name}`,
+      subject: `Contact Form: ${name}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333; border-bottom: 2px solid #c9a962; padding-bottom: 10px;">New Contact Form Submission</h2>
-          <table style="width: 100%; margin-bottom: 20px;">
-            <tr>
-              <td style="padding: 10px 0; font-weight: bold; color: #666; width: 100px;">Name:</td>
-              <td style="padding: 10px 0; color: #333;">${name}</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px 0; font-weight: bold; color: #666;">Email:</td>
-              <td style="padding: 10px 0;"><a href="mailto:${email}" style="color: #c9a962; text-decoration: none;">${email}</a></td>
-            </tr>
-          </table>
-          <div style="background: #f9f9f9; padding: 20px; border-left: 4px solid #c9a962;">
-            <p style="margin: 0; font-weight: bold; color: #666; margin-bottom: 10px;">Message:</p>
-            <p style="margin: 0; color: #333; white-space: pre-wrap;">${message}</p>
-          </div>
-          <p style="color: #999; font-size: 12px; margin-top: 30px;">Reply directly to this email to respond to ${name}.</p>
-        </div>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
       `,
       replyTo: email,
     });
