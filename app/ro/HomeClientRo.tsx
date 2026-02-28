@@ -155,7 +155,8 @@ export default function HomeClientRo() {
             English
           </Link>
 
-          <Link
+          {/* Tracker CTA - TEMPORARILY DISABLED */}
+          {/* <Link
             href="/tracker"
             className="relative flex items-center gap-2 no-underline ml-4 px-5 py-2 bg-charcoal text-gold text-[0.62rem] font-normal tracking-[0.22em] uppercase transition-all duration-300 hover:bg-gold hover:text-charcoal shadow-[0_2px_12px_rgba(28,26,23,0.15)] hover:shadow-[0_4px_20px_rgba(201,169,98,0.3)]"
           >
@@ -163,7 +164,7 @@ export default function HomeClientRo() {
               <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
             </svg>
             Tracker
-          </Link>
+          </Link> */}
         </nav>
 
         <button
@@ -200,8 +201,8 @@ export default function HomeClientRo() {
         >
           English
         </Link>
-        {/* Tracker CTA */}
-        <div className="mt-6 pt-8 border-t border-gold/20 flex flex-col items-center gap-4">
+        {/* Tracker CTA - TEMPORARILY DISABLED */}
+        {/* <div className="mt-6 pt-8 border-t border-gold/20 flex flex-col items-center gap-4">
           <Link
             href="/tracker"
             onClick={() => setMobileMenuOpen(false)}
@@ -213,7 +214,7 @@ export default function HomeClientRo() {
             Pattern Tracker
           </Link>
           <span className="text-[0.55rem] tracking-[0.2em] text-feather uppercase">Urmărește-ți tiparele hormonale</span>
-        </div>
+        </div> */}
       </div>
 
       {/* ── HERO ── */}
