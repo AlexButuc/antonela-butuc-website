@@ -18,19 +18,18 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
     }
 
-    const { error } = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: email,
-      subject: `Thank you for contacting Antonela Butuc`,
+      to: 'alexbutuc@proton.me',
+      subject: `New Contact Form Submission from ${name}`,
       html: `
-        <h2>Thank you for reaching out, ${name}!</h2>
-        <p>I've received your message and will get back to you soon.</p>
-        <p><strong>Your message:</strong></p>
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
         <p>${message}</p>
-        <br>
-        <p>Best regards,</p>
-        <p>Antonela Butuc</p>
       `,
+      replyTo: email,
     });
 
     if (error) {
@@ -38,6 +37,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
     }
 
+    console.log('Email sent:', data);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Contact error:', error);
