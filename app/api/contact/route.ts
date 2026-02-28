@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     const { error } = await resend.emails.send({
-      from: 'contact@antonelabutuc.com',
+      from: 'onboarding@resend.dev',
       to: 'alexbutuc@proton.me',
       subject: `New Contact Form Submission from ${name}`,
       html: `
