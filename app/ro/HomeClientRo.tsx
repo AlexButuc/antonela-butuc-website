@@ -94,6 +94,37 @@ export default function HomeClientRo() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [contactLoading, setContactLoading] = useState(false);
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setContactLoading(true);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setContactSubmitted(true);
+      } else {
+        alert('Eroare la trimiterea mesajului. Vă rugăm încercați din nou.');
+      }
+    } catch {
+      alert('Eroare la trimiterea mesajului. Vă rugăm încercați din nou.');
+    } finally {
+      setContactLoading(false);
+    }
+  };
   const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -560,23 +591,30 @@ export default function HomeClientRo() {
           </div>
         </div>
         <div className="relative z-[1] bg-white/[0.04] border border-gold/15 p-10 md:p-14">
-          <form className="flex flex-col gap-9" onSubmit={(e) => e.preventDefault()}>
-            <div className="border-b border-gold/25 pb-4">
-              <label className="block text-[0.62rem] tracking-[0.22em] uppercase text-ivory/50 mb-3">Nume Complet</label>
-              <input type="text" required className="w-full bg-transparent border-none text-base text-ivory outline-none font-sans placeholder:text-ivory/25" />
+          {contactSubmitted ? (
+            <div className="text-center py-12">
+              <h3 className="font-serif text-xl text-gold mb-4">Mesaj Trimis!</h3>
+              <p className="text-ivory/60">Vă mulțumesc pentru mesaj. Vă voi răspunde în curând.</p>
             </div>
-            <div className="border-b border-gold/25 pb-4">
-              <label className="block text-[0.62rem] tracking-[0.22em] uppercase text-ivory/50 mb-3">Adresa de Email</label>
-              <input type="email" required className="w-full bg-transparent border-none text-base text-ivory outline-none font-sans placeholder:text-ivory/25" />
-            </div>
-            <div className="border-b border-gold/25 pb-4">
-              <label className="block text-[0.62rem] tracking-[0.22em] uppercase text-ivory/50 mb-3">Mesaj</label>
-              <textarea rows={4} required className="w-full bg-transparent border-none text-base text-ivory outline-none font-sans resize-none placeholder:text-ivory/25" />
-            </div>
-            <button type="submit" className="bg-gold text-charcoal border-none py-5 px-12 text-[0.68rem] tracking-[0.3em] uppercase cursor-pointer font-sans font-medium transition-all duration-[400ms] hover:bg-gold-deep hover:text-ivory mt-2">
-              Solicită Consultație →
-            </button>
-          </form>
+          ) : (
+            <form onSubmit={handleContactSubmit} className="flex flex-col gap-9">
+              <div className="border-b border-gold/25 pb-4">
+                <label className="block text-[0.62rem] tracking-[0.22em] uppercase text-ivory/50 mb-3">Nume Complet</label>
+                <input type="text" name="name" required className="w-full bg-transparent border-none text-base text-ivory outline-none font-sans placeholder:text-ivory/25" />
+              </div>
+              <div className="border-b border-gold/25 pb-4">
+                <label className="block text-[0.62rem] tracking-[0.22em] uppercase text-ivory/50 mb-3">Adresa de Email</label>
+                <input type="email" name="email" required className="w-full bg-transparent border-none text-base text-ivory outline-none font-sans placeholder:text-ivory/25" />
+              </div>
+              <div className="border-b border-gold/25 pb-4">
+                <label className="block text-[0.62rem] tracking-[0.22em] uppercase text-ivory/50 mb-3">Mesaj</label>
+                <textarea rows={4} name="message" required className="w-full bg-transparent border-none text-base text-ivory outline-none font-sans resize-none placeholder:text-ivory/25" />
+              </div>
+              <button type="submit" disabled={contactLoading} className="bg-gold text-charcoal border-none py-5 px-12 text-[0.68rem] tracking-[0.3em] uppercase cursor-pointer font-sans font-medium transition-all duration-[400ms] hover:bg-gold-deep hover:text-ivory mt-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                {contactLoading ? 'Se trimite...' : 'Solicită Consultație →'}
+              </button>
+            </form>
+          )}
         </div>
       </section>
 

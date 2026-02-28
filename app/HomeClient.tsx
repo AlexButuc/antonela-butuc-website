@@ -8,6 +8,7 @@ export default function HomeClient() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [contactLoading, setContactLoading] = useState(false);
   const [backToTopVisible, setBackToTopVisible] = useState(false);
 
   useEffect(() => {
@@ -34,9 +35,33 @@ export default function HomeClient() {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
-  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setContactSubmitted(true);
+    setContactLoading(true);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setContactSubmitted(true);
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch {
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setContactLoading(false);
+    }
   };
 
   const toggleFaq = (index: number) => {
@@ -581,9 +606,10 @@ export default function HomeClient() {
                 </div>
                 <button
                   type="submit"
-                  className="bg-gold text-charcoal border-none py-5 px-12 text-[0.68rem] tracking-wide uppercase cursor-pointer font-sans font-medium transition-all duration-[400ms] mt-2 hover:bg-gold-deep hover:text-ivory"
+                  disabled={contactLoading}
+                  className="bg-gold text-charcoal border-none py-5 px-12 text-[0.68rem] tracking-wide uppercase cursor-pointer font-sans font-medium transition-all duration-[400ms] mt-2 hover:bg-gold-deep hover:text-ivory disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Request Consultation &rarr;
+                  {contactLoading ? 'Sending...' : 'Request Consultation →'}
                 </button>
               </form>
             )}
