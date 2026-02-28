@@ -1511,22 +1511,8 @@
                 <p>An e-book guide that includes practical resources to help you balance your hormones naturally.</p>
                 <p class="highlight">Get the first step to increase your energy, lose weight and feel like yourself again.</p>
             </div>
-            <form class="lead-magnet-form" id="leadMagnetForm">
-                <div class="form-field">
-                    <label>Your Name</label>
-                    <input type="text" name="name" placeholder="Enter your name" required>
-                    <span class="error-message"></span>
-                </div>
-                <div class="form-field">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                    <span class="error-message"></span>
-                </div>
-                <button type="submit" class="form-submit">Yes, I Want It</button>
-            </form>
-            <div class="form-success" id="leadMagnetSuccess" style="display: none;">
-                <h3>Thank You!</h3>
-                <p>Check your inbox for your free Hormonal Balance Guide.</p>
+            <div class="lead-magnet-form" style="text-align: center; padding: 2rem;">
+                <a href="https://subscribepage.io/S0Obkx" target="_blank" rel="noopener noreferrer" style="background: var(--gold); color: var(--charcoal); padding: 1.25rem 2.5rem; font-size: 0.68rem; letter-spacing: 0.15em; font-family: 'Outfit', sans-serif; text-transform: uppercase; text-decoration: none; display: inline-block; transition: all 0.3s;">Yes, I Want It</a>
             </div>
         </div>
     </section>
@@ -1771,16 +1757,6 @@
             if (validateForm(contactForm)) {
                 alert('Thank you! Your consultation request has been received. I will get back to you soon.');
                 contactForm.reset();
-            }
-        });
-        
-        const leadMagnetForm = document.getElementById('leadMagnetForm');
-        const leadMagnetSuccess = document.getElementById('leadMagnetSuccess');
-        leadMagnetForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (validateForm(leadMagnetForm)) {
-                leadMagnetForm.style.display = 'none';
-                leadMagnetSuccess.style.display = 'block';
             }
         });
         

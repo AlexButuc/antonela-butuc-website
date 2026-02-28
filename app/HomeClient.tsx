@@ -7,7 +7,6 @@ export default function HomeClient() {
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
-  const [leadMagnetSubmitted, setLeadMagnetSubmitted] = useState(false);
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [backToTopVisible, setBackToTopVisible] = useState(false);
 
@@ -34,11 +33,6 @@ export default function HomeClient() {
     }, 6000);
     return () => clearInterval(interval);
   }, [testimonials.length]);
-
-  const handleLeadMagnetSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLeadMagnetSubmitted(true);
-  };
 
   const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -423,42 +417,15 @@ export default function HomeClient() {
             </p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm p-10 md:p-12 border border-white/20">
-            {leadMagnetSubmitted ? (
-              <div className="text-center py-8">
-                <h3 className="font-serif text-[1.6rem] text-white mb-4">Thank You!</h3>
-                <p className="text-[0.9rem] text-white/70">Check your inbox for your free Hormonal Balance Guide.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleLeadMagnetSubmit} className="flex flex-col gap-7">
-                <div className="border-b border-white/35 pb-3">
-                  <label className="block text-[0.6rem] tracking-[0.22em] uppercase text-white/65 mb-3">Your Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter your name"
-                    required
-                    className="w-full bg-transparent border-none text-base text-white outline-none font-sans placeholder:text-white/40"
-                  />
-                </div>
-                <div className="border-b border-white/35 pb-3">
-                  <label className="block text-[0.6rem] tracking-[0.22em] uppercase text-white/65 mb-3">Email Address</label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required
-                    className="w-full bg-transparent border-none text-base text-white outline-none font-sans placeholder:text-white/40"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="bg-gold text-charcoal border-none py-5 px-10 text-[0.68rem] tracking-wide uppercase cursor-pointer font-sans font-medium transition-all duration-300 mt-2 hover:bg-[#d4b56a] hover:-translate-y-0.5"
-                >
-                  Yes, I Want It
-                </button>
-              </form>
-            )}
+          <div className="bg-white/10 backdrop-blur-sm p-10 md:p-12 border border-white/20 text-center">
+            <a
+              href="https://subscribepage.io/S0Obkx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gold text-charcoal no-underline py-5 px-10 text-[0.68rem] tracking-wide uppercase font-sans font-medium transition-all duration-300 hover:bg-[#d4b56a] hover:-translate-y-0.5"
+            >
+              Yes, I Want It
+            </a>
           </div>
         </div>
       </section>

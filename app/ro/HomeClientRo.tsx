@@ -448,20 +448,15 @@ export default function HomeClientRo() {
               Crește-ți energia, slăbește și simte-te din nou tu însăți.
             </p>
           </div>
-          <div className="bg-white/10 backdrop-blur-[8px] p-10 md:p-12 border border-white/20">
-            <form className="flex flex-col gap-7" onSubmit={(e) => e.preventDefault()}>
-              <div className="border-b border-white/35 pb-3">
-                <label className="block text-[0.6rem] tracking-[0.22em] uppercase text-white/65 mb-3">Numele Tău</label>
-                <input type="text" placeholder="Introdu numele tău" className="w-full bg-transparent border-none text-base text-white outline-none font-sans placeholder:text-white/40" />
-              </div>
-              <div className="border-b border-white/35 pb-3">
-                <label className="block text-[0.6rem] tracking-[0.22em] uppercase text-white/65 mb-3">Adresa de Email</label>
-                <input type="email" placeholder="Introdu adresa de email" className="w-full bg-transparent border-none text-base text-white outline-none font-sans placeholder:text-white/40" />
-              </div>
-              <button type="submit" className="bg-gold text-charcoal border-none py-5 px-10 text-[0.68rem] tracking-[0.3em] uppercase cursor-pointer font-sans font-medium transition-all duration-300 hover:bg-[#d4b56a] hover:-translate-y-0.5 mt-2">
-                Da, Îl Vreau
-              </button>
-            </form>
+          <div className="bg-white/10 backdrop-blur-[8px] p-10 md:p-12 border border-white/20 text-center">
+            <a
+              href="https://subscribepage.io/S0Obkx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gold text-charcoal no-underline py-5 px-10 text-[0.68rem] tracking-[0.3em] uppercase font-sans font-medium transition-all duration-300 hover:bg-[#d4b56a] hover:-translate-y-0.5"
+            >
+              Da, Îl Vreau
+            </a>
           </div>
         </div>
       </section>
